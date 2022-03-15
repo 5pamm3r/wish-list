@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WishList</title>
+</head>
+<body>
+
+    <section class="container">
+        <h1>WishList</h1>
+        <section class="list" id="list">
+            <div class="items__container" id="items__container">
+                <input type="text" id="desc" class="description" placeholder="Description..">
+                <input type="text" id="count" class="count" placeholder="Count..">
+                <input type="text" id="price" class="price" placeholder="Price..">
+                <select class="status" id="status">
+                    <option value="Wish">Wish</option>
+                    <option value="Bought">Bought</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+                <button class="delete" id="delete">Delete</button>
+            </div>            
+        </section>
+        <button id="addItem" class="addItem">Add item</button>
+        <div class="checked">
+            <p>Are items valid?:</p>
+            <input type="checkbox">
+        </div>
+        <p id="total" class="total"></p>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
