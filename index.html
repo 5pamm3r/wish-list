@@ -12,19 +12,23 @@
     <section class="container">
         <h1>WishList</h1>
         <section class="list" id="list">
-            <div class="items__container" id="items__container">
-                <input type="text" id="desc" class="description" placeholder="Description..">
-                <input type="text" id="count" class="count" placeholder="Count..">
-                <input type="text" id="price" class="price" placeholder="Price..">
-                <select class="status" id="status">
-                    <option value="Wish">Wish</option>
-                    <option value="Bought">Bought</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-                <button class="delete" id="delete">Delete</button>
+            <div class="items__container container__required" id="items__container">
+                <div class="items__container">
+                    <input type="text" id="desc" class="description" placeholder="Description..">
+                    <input type="text" id="count" class="count" placeholder="Count..">
+                    <input type="text" id="price" class="price" placeholder="Price..">
+                    <select class="status" id="status">
+                        <option value="Wish">Wish</option>
+                        <option value="Bought">Bought</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                    <button id="addItem" class="addItem">Add item</button>
+                </div>
+                <div class="required">
+                    <p>All fields are required.</p>
+                </div>
             </div>            
         </section>
-        <button id="addItem" class="addItem">Add item</button>
         <div class="checked">
             <p>Are items valid?:</p>
             <input type="checkbox">

@@ -35,10 +35,22 @@ body{
     flex-direction: column;
     gap: 10px;
 }
+.container .total{
+    font-size: 2rem;
+}
 .container .items__container{
     display: flex;
     gap: 10px;
-
+}
+.container .items__container .required{
+    display: none;
+    color: red;
+    font-size: 1.2rem;
+    padding-left: 2px;
+}
+.container .container__required{
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 .container .items__container input{
     border: 1px solid black;
