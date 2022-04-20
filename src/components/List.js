@@ -1,9 +1,9 @@
 import React from "react";
-
+import './../styles/List.css'
 
 function List(props) {
     return (
-        <section >
+        <section className="list__container">
             { props.children }
         </section>
     );

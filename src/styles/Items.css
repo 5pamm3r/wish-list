@@ -1,0 +1,29 @@
+.items__container {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    background-color: white;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.item__check {
+    color: black;
+    font-size: 3rem;
+}
+
+.item__p {
+    color: black;
+    font-size: 2rem;
+}
+
+.item__check-completed {
+    color: green;
+    font-size: 3rem;
+}
+
+.item__p-completed {
+    text-decoration: line-through;
+}

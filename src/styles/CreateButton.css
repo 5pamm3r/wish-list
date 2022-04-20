@@ -1,0 +1,11 @@
+.create__button {
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    width: 40px;
+    font-size: 2rem;
+    background-color: blue;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
