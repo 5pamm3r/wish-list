@@ -1,41 +1,31 @@
-# Getting Started with Create React App
+# wishList
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Instalar create-react-app: Entorno de desarrollo ya funcionando. 
 
-## Available Scripts
+    npx create-react-app ./ => npx instala temporalmente la herramienta en el dir actual. Permite tener siempre la última versión actualizada. 
 
-In the project directory, you can run:
 
-### `npm start`
+Cada componente de React sólo soporta que le enviemos un componente. Se usa React.Fragment para minimizar la cantidad de div's innecesarios que pudiera generar ésto. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Renderizar elementos en una lista:
+    
+    Tenemos que enviar una propiedad especial 'key' a los componentes, para que React pueda identificar cuál componente es cuál en una lista, y no renderizar innecesariamente. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Style:
 
-### `npm run build`
+    En react se usan obj {}.
+    
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React useState => Para manejar estados.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Cambiar cuando el usuario haga alguna acción. 
+    React.useState devuelve un array con 2 posiciones, la primera es el estado, la otra posición es una función setState que nos permite editar nuestro estado.
+    Con cada cambio react hace un re-render.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Stateful y Statless components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
+    -Los comp Stateful son los componentes que guardan y manejan estados. Ej: React.useState.
+    -Los comp Statless son los componentes que sólo presentan información. Es decir son los componentes que reciben props o simplemente muestran algún contenido. 
