@@ -40,6 +40,16 @@ Local Storage: Persistencia de datos directamente en el frontend sin un backend.
     JSON.parse(localStorage.getItem('nameItem)) 
 
 
-Custom React Hook para localStorage  =>  Para manejar información sobre localStorage. 
+Custom React Hook =>  Para manejar información sobre localStorage. 
 
     -El nombre de los Custom React Hooks debe empezar con use.. .
+    -Si retorna 2 elementos (estado y actualizador), podemos enviar un arr de 2 posiciones, pero si tenemos más estados en ese mismo Custom React Hook, se recomienda enviar un obj, no un array. 
+
+
+useEffect  => Manejo de efectos (eventos externos)
+
+    React hook que permite ejecutar cierta  parte del código de nuestros componentes para que no se ejecuten cada vez que hacemos render al componente, sino dependiendo de ciertas condiciones. 
+
+    Se carga por último, justo luego del render de React, pero antes del render en el navegador. En cambio, el useLayoutEffect se ejecuta luego del render de React y del render en el navegador.
+
+    Se agrega un segundo parámetro tipo [] vacío para que no re-renderice. Sólo se ejecuta una vez. Si agregamos un elemento al array, se ejecutará el efecto cada vez que el elemento reciba algún cambio. Si no agregamos nada, se ejecuta en cada render. 

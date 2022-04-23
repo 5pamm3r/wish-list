@@ -14,6 +14,10 @@ function AppUI(props) {
 
       <Search searchValue={props.searchValue} setSearchValue={props.setSearchValue} />
       <List>
+      {props.error && <p>Hubo un error..</p>}
+      {props.loading && <p>Estamos cargando..</p>}
+      {(!props.loading && !props.searchedTodos.length) && <p>Crea tu primer todo</p>}
+
         {props.searchedTodos.map(todo => (
           <Items 
             key={todo.text} 
