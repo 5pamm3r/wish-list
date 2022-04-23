@@ -29,3 +29,17 @@ Stateful y Statless components
 
     -Los comp Stateful son los componentes que guardan y manejan estados. Ej: React.useState.
     -Los comp Statless son los componentes que sólo presentan información. Es decir son los componentes que reciben props o simplemente muestran algún contenido. 
+
+
+Local Storage: Persistencia de datos directamente en el frontend sin un backend. Guarda la información en el cache del navegador. Sólo puede guardar texto. 
+
+    JSON.stringify()  =>  Transforma en texto cualquier obj js.    
+
+    const ejemplo = JSON.stringify([{text:'textoEjemplo',completed:true}])
+    localStorage.setItem('nameItem', ejemplo)
+    JSON.parse(localStorage.getItem('nameItem)) 
+
+
+Custom React Hook para localStorage  =>  Para manejar información sobre localStorage. 
+
+    -El nombre de los Custom React Hooks debe empezar con use.. .
