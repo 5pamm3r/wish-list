@@ -5,31 +5,42 @@ import { Search } from './Search';
 import { List } from './List';
 import { Items } from './Items';
 import { CreateButton } from './CreateButton';
+import { Context } from './Context/index'
 
-function AppUI(props) {
-    return (
+
+function AppUI() {
+
+  //Obtenemos las props que vamos a necesitar. Alternativa a Consumers.
+  const {
+    error,
+    loading,
+    searchedTodos,
+    toggleCompleteTodos,
+    deleteTodo
+  } = React.useContext(Context)  
+  
+  return (
     <React.Fragment> 
       <Title />
-      <Counter total={props.totalTodos} completed={props.completedTodos} />
+      <Counter/>
 
-      <Search searchValue={props.searchValue} setSearchValue={props.setSearchValue} />
+      <Search />
       <List>
-      {props.error && <p>Hubo un error..</p>}
-      {props.loading && <p>Estamos cargando..</p>}
-      {(!props.loading && !props.searchedTodos.length) && <p>Crea tu primer todo</p>}
+        {error && <p>Hubo un error..</p>}
+        {loading && <p>Estamos cargando..</p>}
+        {(!loading && !searchedTodos.length) && <p>Crea tu primer todo</p>}
 
-        {props.searchedTodos.map(todo => (
-          <Items 
-            key={todo.text} 
-            text={todo.text} 
-            completed={todo.completed} 
-            onComplete={() => props.toggleCompleteTodos(todo.text)}
-            onDelete={() => props.deleteTodo(todo.text)}
-          />
-        ))}
+          {searchedTodos.map(todo => (
+            <Items 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed} 
+              onComplete={() => toggleCompleteTodos(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          ))}
       <CreateButton />
-      </List>
-        
+      </List>        
     </React.Fragment>
     );
 }

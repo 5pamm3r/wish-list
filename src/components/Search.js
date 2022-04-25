@@ -1,8 +1,10 @@
 import React from "react";
 import './../styles/Search.css'
+import { Context } from "./Context";
 
-function Search({ searchValue, setSearchValue}) {
-    
+function Search() {
+    const { searchValue, setSearchValue} = React.useContext(Context)
+
     //event traer muchísimas propiedades. 
     const onSearchValueChange = (event) => {
         // console.log(event.target.value)

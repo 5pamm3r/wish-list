@@ -53,3 +53,13 @@ useEffect  => Manejo de efectos (eventos externos)
     Se carga por último, justo luego del render de React, pero antes del render en el navegador. En cambio, el useLayoutEffect se ejecuta luego del render de React y del render en el navegador.
 
     Se agrega un segundo parámetro tipo [] vacío para que no re-renderice. Sólo se ejecuta una vez. Si agregamos un elemento al array, se ejecutará el efecto cada vez que el elemento reciba algún cambio. Si no agregamos nada, se ejecuta en cada render. 
+
+
+React context: Permite crear providers y consumers para compartir el estado entre los diferentes componentes de la app. Para no enviar props por todas partes. 
+
+    -El Provider debe envolver la app. Debe tener por dentro a cualquier componente donde llamemos a Consumer.
+
+    -Render props: No enviar directamente componentes de react, sino una funcion que pueda recibir parámetros y ahí devolver los componentes.
+
+
+useContext: Alternativa más limpia a Consumers.
