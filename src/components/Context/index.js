@@ -10,6 +10,8 @@ function Provider(props) {
   
     const [searchValue, setSearchValue] = React.useState(''); //Para agregar estados. Entre comillas el valor inicial.
   
+    const [openModal, setOpenModal] = React.useState(false) //Por defecto el modal debe estar cerrado.
+
     const completedTodos = item.filter(todo => !!todo.completed).length //!!todo.completed = todo.completed == true. 
     const totalTodos = item.length
   
@@ -25,8 +27,15 @@ function Provider(props) {
       })
     }
   
-   
-  
+    //Guarda el nuevo array en localStorage y en estado global. 
+    const add = (text) => {
+      const newTodos = [...item] 
+      newTodos.push({
+        completed: false,
+        text
+      })
+      saveItem(newTodos)
+    }
     const toggleCompleteTodos = (text) => {
       const todoIndex = item.findIndex(todo => todo.text === text)
       const newTodos = [...item]
@@ -50,8 +59,11 @@ function Provider(props) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            add,
             toggleCompleteTodos,
-            deleteTodo
+            deleteTodo,
+            openModal,
+            setOpenModal
         }}>
             {props.children} {/*Enviamos cualquier componente para que utilicen el consumidor. */}
         </Context.Provider>

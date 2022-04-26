@@ -24,6 +24,8 @@ React useState => Para manejar estados.
     React.useState devuelve un array con 2 posiciones, la primera es el estado, la otra posición es una función setState que nos permite editar nuestro estado.
     Con cada cambio react hace un re-render.
 
+    Todos los actualizadores de estados (setAlgo), permiten enviar el valor directamente (true/false), o enviar una función que devuelve el estado anterior a nuestra actualización. (prevState => !prevState). Si estaba en false cambia a true, o viceversa. 
+
 
 Stateful y Statless components
 
@@ -63,3 +65,6 @@ React context: Permite crear providers y consumers para compartir el estado entr
 
 
 useContext: Alternativa más limpia a Consumers.
+
+
+React portals: Permite teletransportar componentes entre diferentes nodos. 

@@ -6,7 +6,8 @@ import { List } from './List';
 import { Items } from './Items';
 import { CreateButton } from './CreateButton';
 import { Context } from './Context/index'
-
+import { Modal } from './Modal/index'
+import { Form } from "./Form";
 
 function AppUI() {
 
@@ -16,7 +17,9 @@ function AppUI() {
     loading,
     searchedTodos,
     toggleCompleteTodos,
-    deleteTodo
+    deleteTodo,
+    openModal,
+    setOpenModal
   } = React.useContext(Context)  
   
   return (
@@ -28,7 +31,7 @@ function AppUI() {
       <List>
         {error && <p>Hubo un error..</p>}
         {loading && <p>Estamos cargando..</p>}
-        {(!loading && !searchedTodos.length) && <p>Crea tu primer todo</p>}
+        {(!loading && !searchedTodos.length) && <p>Crea tu primer wish</p>}
 
           {searchedTodos.map(todo => (
             <Items 
@@ -39,8 +42,15 @@ function AppUI() {
               onDelete={() => deleteTodo(todo.text)}
             />
           ))}
-      <CreateButton />
-      </List>        
+      <CreateButton setOpenModal={setOpenModal } />
+      </List>   
+
+      {/*Si openModal es true, renderiza el modal. */}
+      {openModal && (   
+        <Modal>
+          <Form />
+        </Modal>
+      )}
     </React.Fragment>
     );
 }
