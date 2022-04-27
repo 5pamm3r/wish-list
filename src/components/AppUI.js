@@ -8,6 +8,10 @@ import { CreateButton } from './CreateButton';
 import { Context } from './Context/index'
 import { Modal } from './Modal/index'
 import { Form } from "./Form";
+import { Error } from './Error'
+import { Empty } from './Empty'
+import { Loading } from './Loading'
+
 
 function AppUI() {
 
@@ -29,9 +33,10 @@ function AppUI() {
 
       <Search />
       <List>
-        {error && <p>Hubo un error..</p>}
-        {loading && <p>Estamos cargando..</p>}
-        {(!loading && !searchedTodos.length) && <p>Crea tu primer wish</p>}
+        {error && <Error error={error} />}
+        {/* {loading && <Loading />} */}
+        {loading && new Array(3).fill(1).map((a, i) => <Loading key={i} />)} {/*para mostrar 3 */}
+        {(!loading && !searchedTodos.length) && <Empty />}
 
           {searchedTodos.map(todo => (
             <Items 
