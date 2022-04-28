@@ -1,0 +1,52 @@
+.cat__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 350px;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: lightcoral;
+  border-radius: 10px;
+  border: 1px solid white;
+  font-size: 1.5rem;
+}
+.cat__container {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.cat__container button {
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons__container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.dot-all {
+  background-color: white;
+}
+.dot-personal {
+  background-color: green;
+}
+.dot-work {
+  background-color: brown;
+}
+.dot-shop {
+  background-color: blue;
+}
+.dot-other {
+  background-color: orange;
+}

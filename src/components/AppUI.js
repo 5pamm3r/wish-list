@@ -11,6 +11,7 @@ import { Form } from "./Form";
 import { Error } from "./Error";
 import { Empty } from "./Empty";
 import { Loading } from "./Loading";
+import { Categories } from './Categories'
 
 function AppUI() {
   //Obtenemos las props que vamos a necesitar. Alternativa a Consumers.
@@ -30,6 +31,7 @@ function AppUI() {
       <Counter />
 
       <Search />
+      <Categories />
       <List>
         {error && <Error error={error} />}
         {/* {loading && <Loading />} */}
