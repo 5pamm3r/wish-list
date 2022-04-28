@@ -1,3 +1,7 @@
+:root {
+    --light-gray: rgb(177, 173, 173)
+}
+
 .loading__container {
     display: flex;
     gap: 10px;
@@ -11,7 +15,7 @@
 }
 
 .loading-complete {
-    color: black;
+    color: var(--light-gray);
     font-size: 3rem;
 }
 
@@ -26,14 +30,13 @@
     text-align: center;
     top: -15px;
     right: 0;
-    color: gray;
+    color: var(--light-gray);
     font-weight: bold;
-    background-color: lightgray;
     border-radius: 20px 20px 0 0;
     font-size: 2rem;
 }
 
-.loading__container, .loading-complete, .loading-delete {
+.loading__container {
     background: linear-gradient(90deg, rgba(250,250,250,1), rgb(200, 199, 199));
     background-size: 400% 400%;
     animation: loadingAnimation 3s ease-in-out infinite;
