@@ -2,10 +2,10 @@
     position: relative;
     min-width: 350px;
     max-width: 500px;
-    background-color: lightcoral;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid white;
     gap: 20px;
     padding: 20px 0;

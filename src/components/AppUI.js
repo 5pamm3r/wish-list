@@ -11,6 +11,7 @@ import { Form } from "./Form";
 import { Error } from "./Error";
 import { Empty } from "./Empty";
 import { Loading } from "./Loading";
+import { Header } from "./Header";
 
 function AppUI() {
   //Obtenemos las props que vamos a necesitar. Alternativa a Consumers.
@@ -26,8 +27,7 @@ function AppUI() {
 
   return (
     <React.Fragment>
-      <Title />
-      <Counter />
+      <Header />
 
       <Search />
       <List>

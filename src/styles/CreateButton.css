@@ -1,13 +1,12 @@
 .create__button {
     position: absolute;
     bottom: 2%;
-    right: 3%;
     width: 40px;
-    font-size: 2rem;
-    background-color: blue;
-    border-radius: 5px;
+    font-size: 3rem;
+    background-color: lightblue;
+    border-radius: 50%;
     cursor: pointer;
-
+    color: white;
     
     z-index: 1;
 }
