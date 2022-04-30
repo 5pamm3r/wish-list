@@ -1,17 +1,12 @@
 .delete__button {
     position: absolute;
-    width: 20px;
-    top: -10px;
+    width: 30px;
     right: 0;
-    color: grey;
-    font-weight: bold;
-    background-color: white;
-    border-radius: 20px 20px 0 0;
-    border: none;
     cursor: pointer;
-    font-size: 2rem;
+    border: none;
+    background-color: transparent;
 }
 
-.delete__button:hover {
-    color: red;
+.delete__button img {
+  width: 100%;
 }

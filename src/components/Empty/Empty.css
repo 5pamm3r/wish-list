@@ -1,0 +1,11 @@
+.first-task{
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.empty__container img {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  background-size: cover;
+}

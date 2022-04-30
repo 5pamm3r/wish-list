@@ -2,7 +2,7 @@ import './../styles/CreateButton.css'
 
 function CreateButton(props) {
     const onClickButton = (msg) => {
-        props.setOpenModal(prevState => !prevState) //
+        props.setOpenModal(prevState => !prevState)
     }    
     
     return (

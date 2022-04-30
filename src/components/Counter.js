@@ -6,7 +6,7 @@ function Counter() {
     const { totalTodos, completedTodos } = React.useContext(Context)
 
     return (
-        <h2 className='Counter'>Has completado {completedTodos} de {totalTodos } TODOs.</h2>
+        <h2 className='Counter'>Completed {completedTodos} out of {totalTodos } tasks.</h2>
     )
 }
 

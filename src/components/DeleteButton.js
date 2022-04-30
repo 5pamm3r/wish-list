@@ -5,7 +5,7 @@ function DeleteButton(props) {
         <button 
             className="delete__button"
             onClick={props.onDelete}
-        >X</button>
+        ><img src='https://img.icons8.com/plasticine/100/000000/filled-trash.png' alt='delete icon' /></button>
     )
 }
 

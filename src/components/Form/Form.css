@@ -1,31 +1,26 @@
-form{
-
+.form__container {
+  position: relative;
 }
 .textarea {
-    width: 250px;
-    height: 60px;
-    text-align: center;
-    padding-top: 20px
+  width: 250px;
+  height: 60px;
+  text-align: center;
+  padding-top: 20px;
+  border-radius: 10px;
 }
 
-.btn__container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
-
+.input-cancel {
+  position: absolute;
+  top: -20px;
+  right: -20px;
 }
-
-.btn__container button {
-    font-size: 2rem;
-    padding: 4px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.btn__container-cancel:hover {
-    background-color: red;
-}
-.btn__container-add:hover {
-    background-color: green;
+.btn-add {
+  font-size: 2rem;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  background-color: lightcyan;
+  display: block;
+  margin: 20px auto;
 }
