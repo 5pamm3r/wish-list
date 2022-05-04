@@ -11,8 +11,8 @@ function Provider(props) {
 
   const [openModal, setOpenModal] = React.useState(false); //Por defecto el modal debe estar cerrado.
 
-  const completedTodos = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
-  const totalTodos = item.length;
+  const itemCompleted = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
+  const itemTotal = item.length;
 
   let searchedTodos = [];
 
@@ -55,8 +55,8 @@ function Provider(props) {
         //Todas las props que querramos compartir deben estar en value.
         loading,
         error,
-        totalTodos,
-        completedTodos,
+        itemTotal,
+        itemCompleted,
         searchValue,
         setSearchValue,
         searchedTodos,

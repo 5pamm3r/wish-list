@@ -23,13 +23,20 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    itemTotal, 
+    itemCompleted,
+    searchValue, 
+    setSearchValue,
   } = React.useContext(Context);
 
   return (
     <React.Fragment>
-      <Header />
+      <Header>
+        <Title />
+        <Counter total={itemTotal} completed={itemCompleted}/>
+      </Header>
 
-      <Search />
+      <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
       <List>
         {error && <Error error={error} />}
         {/* {loading && <Loading />} */}

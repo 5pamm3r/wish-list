@@ -1,12 +1,10 @@
 import React from 'react';
 import './../styles/Counter.css'
-import { Context } from './Context';
 
-function Counter() {
-    const { totalTodos, completedTodos } = React.useContext(Context)
+function Counter({ completed, total }) {
 
     return (
-        <h2 className='Counter'>Completed {completedTodos} out of {totalTodos } tasks.</h2>
+        <h2 className='Counter'>Completed {completed} out of {total } tasks.</h2>
     )
 }
 

@@ -1,8 +1,8 @@
 import './../styles/CreateButton.css'
 
-function CreateButton(props) {
+function CreateButton({setOpenModal}) {
     const onClickButton = (msg) => {
-        props.setOpenModal(prevState => !prevState)
+      setOpenModal(prevState => !prevState)
     }    
     
     return (
