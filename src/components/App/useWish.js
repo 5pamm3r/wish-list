@@ -1,10 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-//Herramienta que nos dará el provider y consumer.
-const Context = React.createContext();
-
-function Provider(props) {
+function useWish() {
   const { item, saveItem, loading, error } = useLocalStorage("WISHLIST_V1", []); //primero el elemento (item), segundo la actualización del mismo (saveItem).
 
   const [searchValue, setSearchValue] = React.useState(""); //Para agregar estados. Entre comillas el valor inicial.
@@ -49,28 +46,20 @@ function Provider(props) {
     saveItem(newTodos);
   };
 
-  return (
-    <Context.Provider
-      value={{
-        //Todas las props que querramos compartir deben estar en value.
-        loading,
-        error,
-        itemTotal,
-        itemCompleted,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        add,
-        toggleCompleteTodos,
-        deleteTodo,
-        openModal,
-        setOpenModal,
-      }}
-    >
-      {props.children}
-      {/*Enviamos cualquier componente para que utilicen el consumidor. */}
-    </Context.Provider>
-  );
+  return {
+    loading,
+    error,
+    itemTotal,
+    itemCompleted,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    add,
+    toggleCompleteTodos,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  };
 }
 
-export { Context, Provider };
+export { useWish };

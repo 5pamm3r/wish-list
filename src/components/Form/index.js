@@ -1,11 +1,9 @@
 import React from "react";
-import { Context } from "../Context";
+import { Context } from "../App/useWish";
 import "./Form.css";
 
-function Form() {
+function Form({ add, setOpenModal, setSearchValue }) {
   const [newValue, setNewValue] = React.useState("");
-
-  const { add, setOpenModal, setSearchValue } = React.useContext(Context);
 
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
