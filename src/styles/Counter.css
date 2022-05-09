@@ -1,5 +1,9 @@
-.Counter {
+.counter {
     font-size: 2.4rem;
     text-align: center;
     
+}
+
+.counter-loading {
+  opacity: 65%;
 }

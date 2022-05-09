@@ -24,3 +24,6 @@
 .Search:focus {
   outline: none;
 }
+.Search:disabled {
+  opacity: 65%;
+}
