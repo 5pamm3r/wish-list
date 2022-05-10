@@ -13,6 +13,7 @@ import { Empty } from "../Empty";
 import { Loading } from "../Loading";
 import { Header } from "../Header";
 import { EmptySearchResults } from "../EmptySearchResults";
+import { ChangeAlert } from '../StorageChangeAlert'
 
 function App() {
   const {
@@ -28,6 +29,7 @@ function App() {
     searchValue,
     setSearchValue,
     add,
+    sincronizeItem
   } = useWish();
 
   return (
@@ -80,6 +82,8 @@ function App() {
           />
         </Modal>
       )}
+
+      <ChangeAlert sincronize={sincronizeItem} />
     </React.Fragment>
   );
 }

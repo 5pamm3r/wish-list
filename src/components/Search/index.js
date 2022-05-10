@@ -1,5 +1,5 @@
 import React from "react";
-import "./../styles/Search.css";
+import "./Search.css";
 
 function Search({ searchValue, setSearchValue, loading }) {
   //event trae muchísimas propiedades.

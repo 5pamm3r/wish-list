@@ -2,7 +2,7 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useWish() {
-  const { item, saveItem, loading, error } = useLocalStorage("WISHLIST_V1", []); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+  const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage("WISHLIST_V1", []); //primero el elemento (item), segundo la actualización del mismo (saveItem).
 
   const [searchValue, setSearchValue] = React.useState(""); //Para agregar estados. Entre comillas el valor inicial.
 
@@ -59,6 +59,7 @@ function useWish() {
     deleteTodo,
     openModal,
     setOpenModal,
+    sincronizeItem
   };
 }
 

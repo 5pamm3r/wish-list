@@ -1,5 +1,5 @@
 import React from 'react';
-import './../styles/Counter.css'
+import './Counter.css'
 
 function Counter({ completed, total, loading }) {
 

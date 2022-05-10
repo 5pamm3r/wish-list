@@ -1,5 +1,5 @@
 import React from "react";
-import "./../styles/List.css";
+import "./List.css";
 
 function List(props) {
   return (
@@ -9,7 +9,7 @@ function List(props) {
         {props.loading && props.onLoading()}
         {!props.loading && !props.itemTotal && props.onEmpty()}
         {(!!props.itemTotal && !props.searchedTodos.length) && props.onEmptySearchResults()}
-        {props.searchedTodos.map(props.render)}
+        {(!props.loading && !props.error) && props.searchedTodos.map(props.render)} 
         {props.children}
       </ul>
     </section>

@@ -4,6 +4,7 @@ function useLocalStorage(itemName, initialValue) {
   const [error, setError] = React.useState(false); //Por defecto false, se inicia con algún error.
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue); //Por defecto arr vacio.
+  const [sincronizedItem, setSincronizedItem] = React.useState(true); //Nos dirá si estamos sincronizados con todas las pestañas del navegador o no.
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -21,11 +22,12 @@ function useLocalStorage(itemName, initialValue) {
 
         setItem(parsedItem);
         setLoading(false);
+        setSincronizedItem(true); //Desaparece mensaje. Esta sincronizado.
       } catch (error) {
         setError(error);
       }
     }, 1000);
-  }, [itemName, initialValue]); //Aquí debe ir un []. Arreglar
+  }, [sincronizedItem]); //Sólo se ejecuta cuando haya un cambio en sincronizedItem para volver a cargar los elementos.
 
   //Para persistir la información cuando se complete o borre un elem.
   const saveItem = (newItem) => {
@@ -38,11 +40,18 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
+  
+  const sincronizeItem = () => {
+    setLoading(true);
+    setSincronizedItem(false)
+  };
+
   return {
     item,
     saveItem,
     loading,
     error,
+    sincronizeItem 
   };
 }
 

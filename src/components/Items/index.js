@@ -1,5 +1,5 @@
-import {DeleteButton} from './DeleteButton'
-import './../styles/Items.css'
+import {DeleteButton} from '../DeleteButton'
+import './Items.css'
 
 function Items(props) {
     return (
