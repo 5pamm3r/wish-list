@@ -1,0 +1,29 @@
+.item__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 150px;
+  height: 100px;
+  background-color: #051853;
+  margin: 20px 0;
+  border-radius: 10px;
+  padding: 10px;
+
+}
+.item__title {
+  color: white;
+}
+.item__count {
+  color: lightgray;
+}
+.progress__container {
+  background-color: black;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+}
+.progress__bar {
+  background-color: white;
+  width: 5%;
+  height: 20px;
+}

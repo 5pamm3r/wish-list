@@ -2,7 +2,10 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useWish() {
-  const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage("WISHLIST_V1", []); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+  const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage(
+    "WISHLIST_V1",
+    []
+  ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
 
   const [searchValue, setSearchValue] = React.useState(""); //Para agregar estados. Entre comillas el valor inicial.
 
@@ -10,8 +13,29 @@ function useWish() {
 
   const itemCompleted = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
   const itemTotal = item.length;
-
   let searchedTodos = [];
+
+
+  const totalPersonal = item.filter(
+    (item) => item.categorie === "personal"
+  ).length;
+  const totalBusiness = item.filter(
+    (item) => item.categorie === "business"
+  ).length;
+  const categories = [
+    {
+      title: "personal",
+      count: totalPersonal,
+    },
+    {
+      title: "business",
+      count: totalBusiness,
+    },
+  ];
+
+
+  
+  let categorieValue = "";
 
   if (!searchValue.length >= 1) {
     searchedTodos = item;
@@ -24,11 +48,13 @@ function useWish() {
   }
 
   //Guarda el nuevo array en localStorage y en estado global.
-  const add = (text) => {
+  const add = (text, categorie) => {
     const newTodos = [...item];
+    categorieValue = categorie;
     newTodos.push({
       completed: false,
       text,
+      categorie: categorie,
     });
     saveItem(newTodos);
   };
@@ -59,7 +85,9 @@ function useWish() {
     deleteTodo,
     openModal,
     setOpenModal,
-    sincronizeItem
+    sincronizeItem,
+    categorieValue,
+    categories,
   };
 }
 

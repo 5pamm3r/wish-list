@@ -1,0 +1,11 @@
+.categorie__title {
+  font-size: 1.8rem;
+  margin-left: 50px;
+  color: lightgray;
+}
+.categorieItem__container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+

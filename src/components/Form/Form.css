@@ -1,5 +1,7 @@
 .form__container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .textarea {
   width: 250px;
@@ -23,4 +25,22 @@
   background-color: lightcyan;
   display: block;
   margin: 20px auto;
+}
+.categorieButton__container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  margin: 10px;
+}
+.button-categorie {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+.personal-btn:focus {
+  background-color: darkviolet;
+}
+.business-btn:focus {
+  background-color: darkblue;
 }

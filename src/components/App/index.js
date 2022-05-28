@@ -13,7 +13,9 @@ import { Empty } from "../Empty";
 import { Loading } from "../Loading";
 import { Header } from "../Header";
 import { EmptySearchResults } from "../EmptySearchResults";
-import { ChangeAlert } from '../StorageChangeAlert'
+import { ChangeAlert } from "../StorageChangeAlert";
+import { Categorie } from "../Categorie";
+import { CategorieItems } from "../CategorieItems";
 
 function App() {
   const {
@@ -29,22 +31,25 @@ function App() {
     searchValue,
     setSearchValue,
     add,
-    sincronizeItem
+    sincronizeItem,
+    categorieValue,
+    categories,
   } = useWish();
 
   return (
     <React.Fragment>
       <Header loading={loading}>
         <Title />
-        <Counter
-          total={itemTotal}
-          completed={itemCompleted}
-        />
-        <Search
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
+        <Counter total={itemTotal} completed={itemCompleted} />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       </Header>
+
+      <Categorie
+        categories={categories}
+        render={(cat) => (
+          <CategorieItems key={cat.title} title={cat.title} count={cat.count}/>
+        )}
+      ></Categorie>
 
       <List
         //primero validaciones
@@ -66,19 +71,20 @@ function App() {
             completed={task.completed}
             onComplete={() => toggleCompleteTodos(task.text)}
             onDelete={() => deleteTodo(task.text)}
+            categories={task.categorie}
           />
         )}
       >
         {<CreateButton setOpenModal={setOpenModal} />}
       </List>
 
-      {/*Si openModal es true, renderiza el modal. */}
       {openModal && (
         <Modal>
           <Form
             add={add}
             setOpenModal={setOpenModal}
             setSearchValue={setSearchValue}
+            categories={categorieValue}
           />
         </Modal>
       )}

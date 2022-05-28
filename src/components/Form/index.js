@@ -1,13 +1,14 @@
 import React from "react";
-import { Context } from "../App/useWish";
 import "./Form.css";
+
+let categorie = "";
 
 function Form({ add, setOpenModal, setSearchValue }) {
   const [newValue, setNewValue] = React.useState("");
 
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
-    add(newValue);
+    add(newValue, categorie);
     setSearchValue("");
     setOpenModal(false);
   };
@@ -18,6 +19,13 @@ function Form({ add, setOpenModal, setSearchValue }) {
   //Cada vez que escribe manda el texto.
   const onChange = (event) => {
     setNewValue(event.target.value);
+  };
+
+  const onClickButton = (e) => {
+    e.preventDefault();
+    e.target.value === "personal"
+      ? (categorie = "personal")
+      : (categorie = "business");
   };
 
   return (
@@ -39,6 +47,22 @@ function Form({ add, setOpenModal, setSearchValue }) {
         src="https://img.icons8.com/color/48/000000/cancel--v1.png"
         className="input-cancel"
       />
+      <div className="categorieButton__container">
+        <button
+          className="button-categorie personal-btn"
+          value="personal"
+          onClick={onClickButton}
+        >
+          Personal
+        </button>
+        <button
+          className="button-categorie business-btn"
+          value="business"
+          onClick={onClickButton}
+        >
+          Business
+        </button>
+      </div>
       <button className="btn-add" type="submit">
         Add
       </button>{" "}
