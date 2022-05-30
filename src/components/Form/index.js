@@ -22,7 +22,6 @@ function Form({ add, setOpenModal, setSearchValue }) {
   };
 
   const onClickButton = (e) => {
-    e.preventDefault();
     e.target.value === "personal"
       ? (categorie = "personal")
       : (categorie = "business");
@@ -49,6 +48,7 @@ function Form({ add, setOpenModal, setSearchValue }) {
       />
       <div className="categorieButton__container">
         <button
+          type="submit"
           className="button-categorie personal-btn"
           value="personal"
           onClick={onClickButton}
@@ -56,6 +56,7 @@ function Form({ add, setOpenModal, setSearchValue }) {
           Personal
         </button>
         <button
+          type="submit"
           className="button-categorie business-btn"
           value="business"
           onClick={onClickButton}
@@ -63,9 +64,9 @@ function Form({ add, setOpenModal, setSearchValue }) {
           Business
         </button>
       </div>
-      <button className="btn-add" type="submit">
+      {/* <button className="btn-add" type="submit">
         Add
-      </button>{" "}
+      </button>{" "} */}
       {/*Ejecuta el evento onSubmit */}
     </form>
   );
