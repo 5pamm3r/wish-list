@@ -19,11 +19,20 @@
 .progress__container {
   background-color: black;
   width: 100%;
-  height: 20px;
+  height: 10px;
   text-align: center;
+  display: flex;
 }
 .progress__bar {
-  background-color: white;
-  width: 5%;
-  height: 20px;
+  height: 100%;
+}
+.progressBar-personal {
+  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px darkviolet,
+    0 0 10px darkviolet, 0 0 10px darkviolet, 0 0 10px darkviolet;
+  background-color: darkviolet;
+}
+.progressBar-business {
+  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px lightskyblue, 0 0 10px lightskyblue,
+    0 0 10px lightskyblue, 0 0 10px lightskyblue;
+  background-color: lightskyblue;
 }

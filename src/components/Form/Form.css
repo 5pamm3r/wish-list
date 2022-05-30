@@ -22,7 +22,9 @@
   border-radius: 10px;
   cursor: pointer;
   width: 100px;
-  background-color: lightcyan;
+  background-color: #324E9B;
+  border: none;
+  color: white;
   display: block;
   margin: 20px auto;
 }
@@ -38,9 +40,8 @@
   cursor: pointer;
   border: none;
 }
-.personal-btn:focus {
-  background-color: darkviolet;
+/* .personal-btn {
+  
 }
-.business-btn:focus {
-  background-color: darkblue;
-}
+.business-btn {
+} */

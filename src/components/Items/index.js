@@ -19,8 +19,7 @@ function Items(props) {
       </div>
       <p className={`item__p ${props.completed && "item__p-completed"}`}>
         {props.text}
-      </p>{" "}
-      {/*Si el item recibe una prop completed, agrega la clase item__p-completed */}
+      </p>
       <DeleteButton onDelete={props.onDelete} />
     </div>
   );

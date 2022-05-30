@@ -4,6 +4,7 @@ import "./List.css";
 function List(props) {
   return (
     <section className="list__container">
+      <h2 className="list__title">TODAY'S TASKS</h2>
       <ul>
         {props.error && props.onError()}
         {props.loading && props.onLoading()}

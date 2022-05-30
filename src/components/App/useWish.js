@@ -15,7 +15,17 @@ function useWish() {
   const itemTotal = item.length;
   let searchedTodos = [];
 
+  const progressColor = (title) => {
+    let className = ''
+    title==='personal'?className='progressBar-personal':className='progressBar-business'
+    return className
+  }
 
+  const categoriesCompleted = (cantItems, item, title) => {
+      const cantCompleted = item.filter((i)=>i.completed && i.categorie===title).length
+      const progress = (cantCompleted * 100) / cantItems
+      return progress
+  }
   const totalPersonal = item.filter(
     (item) => item.categorie === "personal"
   ).length;
@@ -88,6 +98,9 @@ function useWish() {
     sincronizeItem,
     categorieValue,
     categories,
+    categoriesCompleted,
+    item,
+    progressColor,
   };
 }
 

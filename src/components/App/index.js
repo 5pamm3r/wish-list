@@ -34,6 +34,9 @@ function App() {
     sincronizeItem,
     categorieValue,
     categories,
+    categoriesCompleted,
+    item,
+    progressColor,
   } = useWish();
 
   return (
@@ -47,7 +50,14 @@ function App() {
       <Categorie
         categories={categories}
         render={(cat) => (
-          <CategorieItems key={cat.title} title={cat.title} count={cat.count}/>
+          <CategorieItems
+            key={cat.title}
+            title={cat.title}
+            count={cat.count}
+            item={item}
+            progress={categoriesCompleted(cat.count,item,cat.title)}
+            progressColor={progressColor(cat.title)}
+          />
         )}
       ></Categorie>
 
