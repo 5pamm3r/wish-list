@@ -11,28 +11,13 @@ function useWish() {
 
   const [openModal, setOpenModal] = React.useState(false); //Por defecto el modal debe estar cerrado.
 
-  const itemCompleted = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
-  const itemTotal = item.length;
-  let searchedTodos = [];
-
-  const progressColor = (title) => {
-    let className = ''
-    title==='personal'?className='progressBar-personal':className='progressBar-business'
-    return className
-  }
-
-  const categoriesCompleted = (cantItems, item, title) => {
-      const cantCompleted = item.filter((i)=>i.completed && i.categorie===title).length
-      const progress = (cantCompleted * 100) / cantItems
-      return progress
-  }
   const totalPersonal = item.filter(
     (item) => item.categorie === "personal"
   ).length;
   const totalBusiness = item.filter(
     (item) => item.categorie === "business"
   ).length;
-  const categories = [
+  const CATEGORIES = [
     {
       title: "personal",
       count: totalPersonal,
@@ -42,9 +27,35 @@ function useWish() {
       count: totalBusiness,
     },
   ];
+  // const [categItem, setCategItem] = React.useState(item);
 
+  // const filterResult = (catItem) => {
+  //   const result = item.filter((i) => {
+  //     return i.categorie === catItem;
+  //   });
+  //   setCategItem(result);
+  // };
 
-  
+  const itemCompleted = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
+  const itemTotal = item.length;
+  let searchedTodos = [];
+
+  const progressColor = (title) => {
+    let className = "";
+    title === "personal"
+      ? (className = "progressBar-personal")
+      : (className = "progressBar-business");
+    return className;
+  };
+
+  const categoriesCompleted = (cantItems, item, title) => {
+    const cantCompleted = item.filter(
+      (i) => i.completed && i.categorie === title
+    ).length;
+    const progress = (cantCompleted * 100) / cantItems;
+    return progress;
+  };
+
   let categorieValue = "";
 
   if (!searchValue.length >= 1) {
@@ -97,10 +108,13 @@ function useWish() {
     setOpenModal,
     sincronizeItem,
     categorieValue,
-    categories,
+    CATEGORIES,
     categoriesCompleted,
     item,
     progressColor,
+    // categItem,
+    // setCategItem,
+    // filterResult,
   };
 }
 

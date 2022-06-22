@@ -33,10 +33,12 @@ function App() {
     add,
     sincronizeItem,
     categorieValue,
-    categories,
+    CATEGORIES,
     categoriesCompleted,
     item,
     progressColor,
+    // categItem,
+    // filterResult
   } = useWish();
 
   return (
@@ -48,7 +50,7 @@ function App() {
       </Header>
 
       <Categorie
-        categories={categories}
+        CATEGORIES={CATEGORIES}
         render={(cat) => (
           <CategorieItems
             key={cat.title}
@@ -57,6 +59,7 @@ function App() {
             item={item}
             progress={categoriesCompleted(cat.count,item,cat.title)}
             progressColor={progressColor(cat.title)}
+            // filterResult={filterResult(cat.title)}
           />
         )}
       ></Categorie>
@@ -67,6 +70,7 @@ function App() {
         loading={loading}
         searchedTodos={searchedTodos}
         itemTotal={itemTotal}
+        // categItem={categItem}
         //luego renderiza
         onError={() => <Error />}
         onLoading={() => <Loading />}
