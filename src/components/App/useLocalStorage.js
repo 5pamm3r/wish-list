@@ -1,49 +1,51 @@
 import React from "react";
 
 function useLocalStorage(itemName, initialValue) {
-  const [error, setError] = React.useState(false); //Por defecto false, se inicia con algún error.
-  const [loading, setLoading] = React.useState(true);
-  const [item, setItem] = React.useState(initialValue); //Por defecto arr vacio.
-  const [sincronizedItem, setSincronizedItem] = React.useState(true); //Nos dirá si estamos sincronizados con todas las pestañas del navegador o no.
+  const [state, dispatch] = React.useReducer(
+    reducer,
+    initialState({ initialValue })
+  );
+  const { item, loading, error, sincronizedItem } = state;
+
+  const onError = (error) =>
+    dispatch({ type: [actionTypes.error], payload: error });
+  const onSuccess = (parsedItem) =>
+    dispatch({ type: [actionTypes.success], payload: parsedItem });
+  const onSave = (newItem) =>
+    dispatch({ type: [actionTypes.save], payload: newItem });
+  const onSincronize = () => dispatch({ type: [actionTypes.sincronize] });
 
   React.useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
         let parsedItem;
-
-        //En caso que no hayan datos aún en localStorage.
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify([initialValue]));
           parsedItem = [initialValue]; //Hay que darle un estado por defecto a la aplicación, por ende si no hay nada en localstorage pasamos array vacío.
         } else {
           parsedItem = JSON.parse(localStorageItem);
         }
-
-        setItem(parsedItem);
-        setLoading(false);
-        setSincronizedItem(true); //Desaparece mensaje. Esta sincronizado.
+        onSuccess(parsedItem);
       } catch (error) {
-        setError(error);
+        onError(error);
       }
     }, 1000);
-  }, [sincronizedItem]); //Sólo se ejecuta cuando haya un cambio en sincronizedItem para volver a cargar los elementos.
+  }, [sincronizedItem]);
 
   //Para persistir la información cuando se complete o borre un elem.
   const saveItem = (newItem) => {
     try {
       const strg = JSON.stringify(newItem);
       localStorage.setItem(itemName, strg);
-      setItem(newItem);
+      onSave(newItem);
     } catch (error) {
-      setError(error);
+      onError(error);
     }
   };
 
-  
   const sincronizeItem = () => {
-    setLoading(true);
-    setSincronizedItem(false)
+    onSincronize();
   };
 
   return {
@@ -51,8 +53,49 @@ function useLocalStorage(itemName, initialValue) {
     saveItem,
     loading,
     error,
-    sincronizeItem 
+    sincronizeItem,
   };
 }
+
+const initialState = ({ initialValue }) => ({
+  error: false,
+  loading: true,
+  item: initialValue,
+  sincronizedItem: true,
+});
+
+const actionTypes = {
+  error: "ERROR",
+  success: "SUCCESS",
+  save: "SAVE",
+  sincronize: "SINCRONIZE",
+};
+
+const reducerObject = (state, payload) => ({
+  [actionTypes.error]: {
+    ...state,
+    error: true,
+  },
+  [actionTypes.success]: {
+    ...state,
+    item: payload,
+    error: false,
+    loading: false,
+    sincronizedItem: true,
+  },
+  [actionTypes.save]: {
+    ...state,
+    item: payload,
+  },
+  [actionTypes.sincronize]: {
+    ...state,
+    loading: true,
+    sincronizedItem: false,
+  },
+});
+
+const reducer = (state, action) => {
+  return reducerObject(state, action.payload)[action.type];
+};
 
 export { useLocalStorage };
