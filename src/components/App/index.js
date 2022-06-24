@@ -18,28 +18,27 @@ import { Categorie } from "../Categorie";
 import { CategorieItems } from "../CategorieItems";
 
 function App() {
-  const {
-    error,
+  const {state, stateUpdaters} = useWish();
+  const { item,
     loading,
+    error,
     searchedTodos,
-    toggleCompleteTodos,
-    deleteTodo,
-    openModal,
-    setOpenModal,
     itemTotal,
     itemCompleted,
     searchValue,
-    setSearchValue,
-    add,
-    sincronizeItem,
-    categorieValue,
+    openModal,
     CATEGORIES,
-    categoriesCompleted,
-    item,
-    progressColor,
-    // categItem,
-    // filterResult
-  } = useWish();
+    categorieValue,
+    categoriesCompleted 
+  } = state;
+  const {add,
+    toggleCompletedTodos,
+    setSearchValue,
+    deleteTodo,
+    sincronizeItem,
+    setOpenModal,
+    progressColor
+  } = stateUpdaters;
 
   return (
     <React.Fragment>
@@ -83,7 +82,7 @@ function App() {
             key={task.text}
             text={task.text}
             completed={task.completed}
-            onComplete={() => toggleCompleteTodos(task.text)}
+            onComplete={() => toggleCompletedTodos(task.text)}
             onDelete={() => deleteTodo(task.text)}
             categories={task.categorie}
           />

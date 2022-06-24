@@ -7,9 +7,9 @@ function useWish() {
     []
   ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
 
-  const [searchValue, setSearchValue] = React.useState(""); //Para agregar estados. Entre comillas el valor inicial.
+  const [searchValue, setSearchValue] = React.useState("");
 
-  const [openModal, setOpenModal] = React.useState(false); //Por defecto el modal debe estar cerrado.
+  const [openModal, setOpenModal] = React.useState(false);
 
   const totalPersonal = item.filter(
     (item) => item.categorie === "personal"
@@ -27,16 +27,8 @@ function useWish() {
       count: totalBusiness,
     },
   ];
-  // const [categItem, setCategItem] = React.useState(item);
 
-  // const filterResult = (catItem) => {
-  //   const result = item.filter((i) => {
-  //     return i.categorie === catItem;
-  //   });
-  //   setCategItem(result);
-  // };
-
-  const itemCompleted = item.filter((todo) => !!todo.completed).length; //!!todo.completed = todo.completed == true.
+  const itemCompleted = item.filter((todo) => !!todo.completed).length;
   const itemTotal = item.length;
   let searchedTodos = [];
 
@@ -79,7 +71,7 @@ function useWish() {
     });
     saveItem(newTodos);
   };
-  const toggleCompleteTodos = (text) => {
+  const toggleCompletedTodos = (text) => {
     const todoIndex = item.findIndex((todo) => todo.text === text);
     const newTodos = [...item];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
@@ -93,29 +85,33 @@ function useWish() {
     saveItem(newTodos);
   };
 
-  return {
+  const state = {
+    item,
     loading,
     error,
+    searchedTodos,
     itemTotal,
     itemCompleted,
     searchValue,
-    setSearchValue,
-    searchedTodos,
-    add,
-    toggleCompleteTodos,
-    deleteTodo,
     openModal,
-    setOpenModal,
-    sincronizeItem,
-    categorieValue,
     CATEGORIES,
+    categorieValue,
     categoriesCompleted,
-    item,
+
+  }
+  const stateUpdaters = {
+    add,
+    toggleCompletedTodos,
+    setSearchValue,
+    deleteTodo,
+    sincronizeItem,
+    setOpenModal,
     progressColor,
-    // categItem,
-    // setCategItem,
-    // filterResult,
-  };
+
+  }
+
+
+  return { state, stateUpdaters  };
 }
 
 export { useWish };
