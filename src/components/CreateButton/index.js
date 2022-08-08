@@ -1,8 +1,8 @@
 import './CreateButton.css'
 
-function CreateButton({setOpenModal}) {
+function CreateButton({setOpenItemModal}) {
     const onClickButton = (msg) => {
-      setOpenModal(prevState => !prevState)
+      setOpenItemModal(prevState => !prevState)
     }    
     
     return (
