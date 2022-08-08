@@ -6,8 +6,8 @@ import { Search } from "../Search";
 import { List } from "../List";
 import { Items } from "../Items";
 import { CreateButton } from "../CreateButton";
-import { Modal } from "../Modal/index";
-import { Form } from "../Form";
+import { ItemModal } from "../Modals/itemModal";
+import { FormItem } from "../Forms/formItem";
 import { Error } from "../Error";
 import { Empty } from "../Empty";
 import { Loading } from "../Loading";
@@ -16,28 +16,35 @@ import { EmptySearchResults } from "../EmptySearchResults";
 import { ChangeAlert } from "../StorageChangeAlert";
 import { Categorie } from "../Categorie";
 import { CategorieItems } from "../CategorieItems";
+import { CategoryModal } from "../Modals/categoryModal";
+import FormCategory from "../Forms/formCategory";
 
 function App() {
   const {state, stateUpdaters} = useWish();
-  const { item,
+  const { 
+    // item,
     loading,
     error,
     searchedTodos,
     itemTotal,
     itemCompleted,
     searchValue,
-    openModal,
+    openItemModal,
+    openCategModal,
     CATEGORIES,
+    category,
+    addCategory,
     categorieValue,
-    categoriesCompleted 
+    // categoriesCompleted,
   } = state;
   const {add,
     toggleCompletedTodos,
     setSearchValue,
     deleteTodo,
     sincronizeItem,
-    setOpenModal,
-    progressColor
+    setOpenItemModal,
+    setOpenCategModal,
+    // progressColor,
   } = stateUpdaters;
 
   return (
@@ -50,16 +57,17 @@ function App() {
 
       <Categorie
         CATEGORIES={CATEGORIES}
+        category={category}
+        setOpenCategModal={setOpenCategModal}
         render={(cat) => (
           <CategorieItems
             key={cat.title}
             title={cat.title}
             count={cat.count}
-            item={item}
-            progress={categoriesCompleted(cat.count,item,cat.title)}
-            progressColor={progressColor(cat.title)}
-            // filterResult={filterResult(cat.title)}
-          />
+            // item={item}
+            // progress={categoriesCompleted(cat.count,item,cat.title)}
+            // progressColor={progressColor(cat.title)}
+            />
         )}
       ></Categorie>
 
@@ -69,7 +77,6 @@ function App() {
         loading={loading}
         searchedTodos={searchedTodos}
         itemTotal={itemTotal}
-        // categItem={categItem}
         //luego renderiza
         onError={() => <Error />}
         onLoading={() => <Loading />}
@@ -88,20 +95,25 @@ function App() {
           />
         )}
       >
-        {<CreateButton setOpenModal={setOpenModal} />}
+        {<CreateButton setOpenItemModal={setOpenItemModal} />}
       </List>
 
-      {openModal && (
-        <Modal>
-          <Form
+      {openItemModal && (
+        <ItemModal>
+          <FormItem
             add={add}
-            setOpenModal={setOpenModal}
+            setOpenItemModal={setOpenItemModal}
             setSearchValue={setSearchValue}
             categories={categorieValue}
           />
-        </Modal>
+        </ItemModal>
       )}
+      {openCategModal && (
+        <CategoryModal>
+          <FormCategory category={category} addCategory={addCategory} />
 
+        </CategoryModal>
+      )}
       <ChangeAlert sincronize={sincronizeItem} />
     </React.Fragment>
   );
