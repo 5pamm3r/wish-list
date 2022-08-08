@@ -1,4 +1,5 @@
 import React from "react";
+import useCategoryLocalStorage from "./useCategoryLocalStorage";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useWish() {
@@ -6,27 +7,18 @@ function useWish() {
     "WISHLIST_V1",
     []
   ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+  const { category, saveCategory, catLoading, catError, sincronizeCategory } =
+    useCategoryLocalStorage("WISHLIST-CAT_V1", []);
 
   const [searchValue, setSearchValue] = React.useState("");
 
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openItemModal, setOpenItemModal] = React.useState(false);
+  const [openCategModal, setOpenCategModal] = React.useState(false);
 
-  const totalPersonal = item.filter(
-    (item) => item.categorie === "personal"
-  ).length;
-  const totalBusiness = item.filter(
-    (item) => item.categorie === "business"
-  ).length;
-  const CATEGORIES = [
-    {
-      title: "personal",
-      count: totalPersonal,
-    },
-    {
-      title: "business",
-      count: totalBusiness,
-    },
-  ];
+  const totalItemCategory = (category) => {
+    const totalItem = item.filter((e) => e.categorie === category).length;
+    return totalItem;
+  };
 
   const itemCompleted = item.filter((todo) => !!todo.completed).length;
   const itemTotal = item.length;
@@ -71,6 +63,15 @@ function useWish() {
     });
     saveItem(newTodos);
   };
+  const addCategory = (categoryName) => {
+    const newCategory = [...category];
+    newCategory.push({
+      title: categoryName,
+      count: totalItemCategory(categoryName),
+    });
+    saveCategory(newCategory);
+  };
+
   const toggleCompletedTodos = (text) => {
     const todoIndex = item.findIndex((todo) => todo.text === text);
     const newTodos = [...item];
@@ -93,25 +94,25 @@ function useWish() {
     itemTotal,
     itemCompleted,
     searchValue,
-    openModal,
-    CATEGORIES,
+    openItemModal,
+    openCategModal,
+    category,
+    addCategory,
     categorieValue,
     categoriesCompleted,
-
-  }
+  };
   const stateUpdaters = {
     add,
     toggleCompletedTodos,
     setSearchValue,
     deleteTodo,
     sincronizeItem,
-    setOpenModal,
+    setOpenItemModal,
+    setOpenCategModal,
     progressColor,
+  };
 
-  }
-
-
-  return { state, stateUpdaters  };
+  return { state, stateUpdaters };
 }
 
 export { useWish };

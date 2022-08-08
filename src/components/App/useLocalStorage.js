@@ -43,6 +43,7 @@ function useLocalStorage(itemName, initialValue) {
       onError(error);
     }
   };
+  
 
   const sincronizeItem = () => {
     onSincronize();
