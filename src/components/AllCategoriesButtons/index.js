@@ -1,12 +1,21 @@
-import React from 'react'
+import React from "react";
 
-function AllCategoriesButtons({ nameCategory, setCategSelected, setColorSelected, color }) {
-  
+function AllCategoriesButtons({
+  nameCategory,
+  setCategoryName,
+  setCategoryColor,
+  color,
+}) {
+  const onClick = (e) => {
+    setCategoryName(e.target.innerText);
+    setCategoryColor(color);
+  };
+
   return (
     <div>
-      <button>{nameCategory}</button>
+      <button onClick={onClick}>{nameCategory}</button>
     </div>
-  )
+  );
 }
 
-export default AllCategoriesButtons
+export default AllCategoriesButtons;
