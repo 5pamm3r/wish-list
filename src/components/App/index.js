@@ -23,7 +23,6 @@ import AllCategoriesButtons from "../AllCategoriesButtons";
 function App() {
   const {state, stateUpdaters} = useWish();
   const { 
-    // item,
     loading,
     error,
     searchedTodos,
@@ -34,12 +33,9 @@ function App() {
     openCategModal,
     category,
     addCategory,
-    categorieValue,
-    newValue
-    // categSelected,
-    // colorSelected,
-
-    // categoriesCompleted,
+    newValue,
+    categoryName,
+    categoryColor
   } = state;
   const {add,
     toggleCompletedTodos,
@@ -48,10 +44,10 @@ function App() {
     sincronizeItem,
     setOpenItemModal,
     setOpenCategModal,
-    setNewValue
-    // setCategSelected,
-    // setColorSelected,
-    // progressColor,
+    setNewValue,
+    deleteCategory,
+    setCategoryName,
+    setCategoryColor
   } = stateUpdaters;
 
   return (
@@ -70,6 +66,7 @@ function App() {
             key={cat.title}
             title={cat.title}
             count={cat.count}
+            onDelete={() => deleteCategory(cat.title)}
             // item={item}
             // progress={categoriesCompleted(cat.count,item,cat.title)}
             // progressColor={progressColor(cat.title)}
@@ -95,9 +92,10 @@ function App() {
             key={task.text}
             text={task.text}
             completed={task.completed}
+            category={task.category}
+            categoryColor={categoryColor}
             onComplete={() => toggleCompletedTodos(task.text)}
             onDelete={() => deleteTodo(task.text)}
-            categories={task.categorie}
           />
         )}
       >
@@ -107,18 +105,21 @@ function App() {
       {openItemModal && (
         <ItemModal>
           <FormItem
-            add={add}
             category={category}
-            categories={categorieValue}
+            categoryName={categoryName}
+            categoryColor={categoryColor}
+            newValue={newValue}
+            add={add}
             setOpenItemModal={setOpenItemModal}
             setSearchValue={setSearchValue}
-            newValue={newValue}
             setNewValue={setNewValue}
             render={(cat)=>(
               <AllCategoriesButtons 
                 key={cat.title}
                 nameCategory={cat.title}
                 color={cat.color}
+                setCategoryName={setCategoryName}
+                setCategoryColor={setCategoryColor}
               />
             )}
           />
