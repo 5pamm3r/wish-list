@@ -1,14 +1,12 @@
 import React from "react";
 import "./FormItem.css";
 
-let categorie = "";
 
-function FormItem({ add, setOpenItemModal, setSearchValue }) {
-  const [newValue, setNewValue] = React.useState("");
+function FormItem({ add, setOpenItemModal, setSearchValue, category, render, newValue, setNewValue  }) {
 
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
-    add(newValue, categorie);
+    add(newValue);
     setSearchValue("");
     setOpenItemModal(false);
   };
@@ -21,11 +19,11 @@ function FormItem({ add, setOpenItemModal, setSearchValue }) {
     setNewValue(event.target.value);
   };
 
-  const onClickButton = (e) => {
-    e.target.value === "personal"
-      ? (categorie = "personal")
-      : (categorie = "business");
-  };
+  // const onClickButton = (e) => {
+  //   e.target.value === "personal"
+  //     ? (categorie = "personal")
+  //     : (categorie = "business");
+  // };
 
   return (
     //Los form tienen un evento onSubmit
@@ -47,6 +45,10 @@ function FormItem({ add, setOpenItemModal, setSearchValue }) {
         className="input-cancel"
       />
       <div className="categorieButton__container">
+
+      {category.map(render)}
+      </div>
+      {/* <div className="categorieButton__container">
         <button
           type="submit"
           className="button-categorie personal-btn"
@@ -63,7 +65,7 @@ function FormItem({ add, setOpenItemModal, setSearchValue }) {
         >
           Business
         </button>
-      </div>
+      </div> */}
       {/* <button className="btn-add" type="submit">
         Add
       </button>{" "} */}
