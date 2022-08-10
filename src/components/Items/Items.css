@@ -24,17 +24,6 @@
 .item__check img {
   display: none;
 }
-.item__check-personal {
-  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px darkviolet,
-    0 0 10px darkviolet, 0 0 10px darkviolet, 0 0 10px darkviolet;
-  border: 1px solid darkviolet;
-}
-.item__check-business {
-  border: 1px solid lightskyblue;
-  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px lightskyblue, 0 0 10px lightskyblue,
-    0 0 10px lightskyblue, 0 0 10px lightskyblue;
-  
-}
 
 .item__p {
   color: white;
