@@ -1,12 +1,20 @@
 import React from "react";
 import "./FormItem.css";
 
-
-function FormItem({ add, setOpenItemModal, setSearchValue, category, render, newValue, setNewValue  }) {
-
+function FormItem({
+  add,
+  setOpenItemModal,
+  setSearchValue,
+  category,
+  render,
+  newValue,
+  setNewValue,
+  categoryName,
+  categoryColor
+}) {
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
-    add(newValue);
+    add(newValue, categoryName, categoryColor);
     setSearchValue("");
     setOpenItemModal(false);
   };
@@ -14,16 +22,9 @@ function FormItem({ add, setOpenItemModal, setSearchValue, category, render, new
     setOpenItemModal(false);
   };
 
-  //Cada vez que escribe manda el texto.
   const onChange = (event) => {
     setNewValue(event.target.value);
   };
-
-  // const onClickButton = (e) => {
-  //   e.target.value === "personal"
-  //     ? (categorie = "personal")
-  //     : (categorie = "business");
-  // };
 
   return (
     //Los form tienen un evento onSubmit
@@ -44,32 +45,7 @@ function FormItem({ add, setOpenItemModal, setSearchValue, category, render, new
         src="https://img.icons8.com/color/48/000000/cancel--v1.png"
         className="input-cancel"
       />
-      <div className="categorieButton__container">
-
-      {category.map(render)}
-      </div>
-      {/* <div className="categorieButton__container">
-        <button
-          type="submit"
-          className="button-categorie personal-btn"
-          value="personal"
-          onClick={onClickButton}
-        >
-          Personal
-        </button>
-        <button
-          type="submit"
-          className="button-categorie business-btn"
-          value="business"
-          onClick={onClickButton}
-        >
-          Business
-        </button>
-      </div> */}
-      {/* <button className="btn-add" type="submit">
-        Add
-      </button>{" "} */}
-      {/*Ejecuta el evento onSubmit */}
+      <div className="categorieButton__container">{category.map(render)}</div>
     </form>
   );
 }
