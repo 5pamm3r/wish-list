@@ -18,6 +18,7 @@ import { Categorie } from "../Categorie";
 import { CategorieItems } from "../CategorieItems";
 import { CategoryModal } from "../Modals/categoryModal";
 import FormCategory from "../Forms/formCategory";
+import AllCategoriesButtons from "../AllCategoriesButtons";
 
 function App() {
   const {state, stateUpdaters} = useWish();
@@ -31,10 +32,13 @@ function App() {
     searchValue,
     openItemModal,
     openCategModal,
-    CATEGORIES,
     category,
     addCategory,
     categorieValue,
+    newValue
+    // categSelected,
+    // colorSelected,
+
     // categoriesCompleted,
   } = state;
   const {add,
@@ -44,6 +48,9 @@ function App() {
     sincronizeItem,
     setOpenItemModal,
     setOpenCategModal,
+    setNewValue
+    // setCategSelected,
+    // setColorSelected,
     // progressColor,
   } = stateUpdaters;
 
@@ -56,7 +63,6 @@ function App() {
       </Header>
 
       <Categorie
-        CATEGORIES={CATEGORIES}
         category={category}
         setOpenCategModal={setOpenCategModal}
         render={(cat) => (
@@ -102,9 +108,19 @@ function App() {
         <ItemModal>
           <FormItem
             add={add}
+            category={category}
+            categories={categorieValue}
             setOpenItemModal={setOpenItemModal}
             setSearchValue={setSearchValue}
-            categories={categorieValue}
+            newValue={newValue}
+            setNewValue={setNewValue}
+            render={(cat)=>(
+              <AllCategoriesButtons 
+                key={cat.title}
+                nameCategory={cat.title}
+                color={cat.color}
+              />
+            )}
           />
         </ItemModal>
       )}
