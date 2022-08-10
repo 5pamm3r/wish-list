@@ -21,8 +21,8 @@ function useLocalStorage(itemName, initialValue) {
         const localStorageItem = localStorage.getItem(itemName);
         let parsedItem;
         if (!localStorageItem) {
-          localStorage.setItem(itemName, JSON.stringify([initialValue]));
-          parsedItem = [initialValue]; //Hay que darle un estado por defecto a la aplicación, por ende si no hay nada en localstorage pasamos array vacío.
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue; //Hay que darle un estado por defecto a la aplicación, por ende si no hay nada en localstorage pasamos array vacío.
         } else {
           parsedItem = JSON.parse(localStorageItem);
         }
