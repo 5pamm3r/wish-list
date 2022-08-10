@@ -24,23 +24,17 @@ function useWish() {
   const itemTotal = item.length;
   let searchedTodos = [];
 
-  const progressColor = (title) => {
-    let className = "";
-    title === "personal"
-      ? (className = "progressBar-personal")
-      : (className = "progressBar-business");
-    return className;
-  };
-
-  const categoriesCompleted = (cantItems, item, title) => {
-    const cantCompleted = item.filter(
-      (i) => i.completed && i.categorie === title
-    ).length;
-    const progress = (cantCompleted * 100) / cantItems;
-    return progress;
-  };
+  // const categoriesCompleted = (cantItems, item, title) => {
+  //   const cantCompleted = item.filter(
+  //     (i) => i.completed && i.categorie === title
+  //   ).length;
+  //   const progress = (cantCompleted * 100) / cantItems;
+  //   return progress;
+  // };
 
   const [newValue, setNewValue] = React.useState("");
+  const [categoryName, setCategoryName] = useState('')
+  const [categoryColor, setCategoryColor] = useState('')
 
   if (!searchValue.length >= 1) {
     searchedTodos = item;
@@ -53,12 +47,13 @@ function useWish() {
   }
 
   //Guarda el nuevo array en localStorage y en estado global.
-  const add = (text) => {
+  const add = (text, categoryName, categoryColor) => {
     const newTodos = [...item];
-    // categorieValue = categorie;
     newTodos.push({
       completed: false,
       text: text,
+      category: categoryName,
+      categoryColor: categoryColor
     });
     saveItem(newTodos);
   };
@@ -85,9 +80,14 @@ function useWish() {
     newTodos.splice(todoIndex, 1);
     saveItem(newTodos);
   };
+  const deleteCategory = (categoryName) => {
+    const index =  category.findIndex((cat)=> cat.title === categoryName)
+    const newCategory = [...category]
+    newCategory.splice(index, 1)
+    saveCategory(newCategory)
+  }
 
   const state = {
-    item,
     loading,
     error,
     searchedTodos,
@@ -98,8 +98,9 @@ function useWish() {
     openCategModal,
     category,
     addCategory,
-    categoriesCompleted,
-    newValue
+    newValue,
+    categoryName,
+    categoryColor
   };
   const stateUpdaters = {
     add,
@@ -109,8 +110,10 @@ function useWish() {
     sincronizeItem,
     setOpenItemModal,
     setOpenCategModal,
-    progressColor,
-    setNewValue
+    setNewValue,
+    deleteCategory,
+    setCategoryName,
+    setCategoryColor
   };
 
   return { state, stateUpdaters };
