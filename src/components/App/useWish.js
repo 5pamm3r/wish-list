@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useCategoryLocalStorage from "./useCategoryLocalStorage";
 import { useLocalStorage } from "./useLocalStorage";
 
@@ -40,7 +40,7 @@ function useWish() {
     return progress;
   };
 
-  let categorieValue = "";
+  const [newValue, setNewValue] = React.useState("");
 
   if (!searchValue.length >= 1) {
     searchedTodos = item;
@@ -53,21 +53,21 @@ function useWish() {
   }
 
   //Guarda el nuevo array en localStorage y en estado global.
-  const add = (text, categorie) => {
+  const add = (text) => {
     const newTodos = [...item];
-    categorieValue = categorie;
+    // categorieValue = categorie;
     newTodos.push({
       completed: false,
-      text,
-      categorie: categorie,
+      text: text,
     });
     saveItem(newTodos);
   };
-  const addCategory = (categoryName) => {
+  const addCategory = (categoryName, color) => {
     const newCategory = [...category];
     newCategory.push({
       title: categoryName,
       count: totalItemCategory(categoryName),
+      color: color
     });
     saveCategory(newCategory);
   };
@@ -98,8 +98,8 @@ function useWish() {
     openCategModal,
     category,
     addCategory,
-    categorieValue,
     categoriesCompleted,
+    newValue
   };
   const stateUpdaters = {
     add,
@@ -110,6 +110,7 @@ function useWish() {
     setOpenItemModal,
     setOpenCategModal,
     progressColor,
+    setNewValue
   };
 
   return { state, stateUpdaters };
