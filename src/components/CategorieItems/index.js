@@ -18,8 +18,9 @@ function CategorieItems(props) {
         <div
           className={`progress__bar ${props.progressColor} `}
           style={{ width: `${progress || 0}%` }}
-        ></div>
+          ></div>
       </div>
+      <button className='delete__category' onClick={props.onDelete}>X</button>
     </div>
   );
 }

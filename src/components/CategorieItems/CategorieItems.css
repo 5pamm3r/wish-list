@@ -1,5 +1,6 @@
 .item__container {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-evenly;
   width: 150px;
@@ -25,6 +26,11 @@
 }
 .progress__bar {
   height: 100%;
+}
+.delete__category {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .progressBar-personal {
   box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px darkviolet,
