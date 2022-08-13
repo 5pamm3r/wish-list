@@ -10,7 +10,8 @@ function FormItem({
   newValue,
   setNewValue,
   categoryName,
-  categoryColor
+  categoryColor,
+  
 }) {
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
