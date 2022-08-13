@@ -2,12 +2,12 @@ import { useState } from "react";
 import { DeleteButton } from "../DeleteButton";
 import "./Items.css";
 
-function Items(props) {
+function Items({text, completed, onDelete, onComplete, categoryColor}) {
   // const [checkColor, setCheckColor] = useState('')
   const checkStyle = {
-    boxShadow: `0 0 2px #fff, 0 0 5px #fff, 0 0 10px ${props.categoryColor},
-    0 0 10px ${props.categoryColor}, 0 0 10px ${props.categoryColor}, 0 0 10px ${props.categoryColor}`,
-    border: `1px solid ${props.categoryColor}`,
+    boxShadow: `0 0 2px #fff, 0 0 5px #fff, 0 0 10px ${categoryColor},
+    0 0 10px ${categoryColor}, 0 0 10px ${categoryColor}, 0 0 10px ${categoryColor}`,
+    border: `1px solid ${categoryColor}`,
   }
   
   return (
@@ -15,9 +15,8 @@ function Items(props) {
       className={`items__container `}
     >
       <div id="checkColor"
-        className={`item__check ${!!props.completed && "item__check-completed"}`}
-        // onClick={props.onComplete}
-        onClick={()=>console.log(props.category)}
+        className={`item__check ${!!completed && "item__check-completed"}`}
+        onClick={onComplete}
         style={checkStyle}
 >
         <img
@@ -25,10 +24,10 @@ function Items(props) {
           alt="check icon"
         />
       </div>
-      <p className={`item__p ${props.completed && "item__p-completed"}`}>
-        {props.text}
+      <p className={`item__p ${completed && "item__p-completed"}`}>
+        {text}
       </p>
-      <DeleteButton onDelete={props.onDelete} />
+      <DeleteButton onDelete={onDelete} />
     </div>
   );
 }
