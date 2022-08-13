@@ -3,7 +3,6 @@ import "./Categorie.css";
 function Categorie(props) {
   const onClick = () => {
     props.setOpenCategModal(prevState => !prevState)
-    console.log(props.category)
   }
 
   return (
