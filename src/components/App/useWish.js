@@ -6,35 +6,29 @@ function useWish() {
   const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage(
     "WISHLIST_V1",
     []
-  ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
-  const { category, saveCategory, catLoading, catError, sincronizeCategory } =
+    ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+    const { category, saveCategory, catLoading, catError, sincronizeCategory } =
     useCategoryLocalStorage("WISHLIST-CAT_V1", []);
-
-  const [searchValue, setSearchValue] = React.useState("");
-
-  const [openItemModal, setOpenItemModal] = React.useState(false);
-  const [openCategModal, setOpenCategModal] = React.useState(false);
-
-  const totalItemCategory = (category) => {
-    const totalItem = item.filter((e) => e.categorie === category).length;
-    return totalItem;
-  };
+    const [searchValue, setSearchValue] = React.useState("");
+    const [openItemModal, setOpenItemModal] = React.useState(false);
+    const [openCategModal, setOpenCategModal] = React.useState(false);
+    const [newValue, setNewValue] = React.useState("");
+    const [categoryName, setCategoryName] = useState('')
+    const [categoryColor, setCategoryColor] = useState('')
+    let searchedTodos = [];
+  
 
   const itemCompleted = item.filter((todo) => !!todo.completed).length;
   const itemTotal = item.length;
-  let searchedTodos = [];
 
-  // const categoriesCompleted = (cantItems, item, title) => {
-  //   const cantCompleted = item.filter(
-  //     (i) => i.completed && i.categorie === title
-  //   ).length;
-  //   const progress = (cantCompleted * 100) / cantItems;
-  //   return progress;
-  // };
+  const categoryTotalCompleted = (cantItems, item, title) => {
+    const cantCompleted = item.filter(
+      (i) => i.completed && i.category === title
+    ).length;
+    const progress = (cantCompleted * 100) / cantItems;
+    return progress;
+  };
 
-  const [newValue, setNewValue] = React.useState("");
-  const [categoryName, setCategoryName] = useState('')
-  const [categoryColor, setCategoryColor] = useState('')
 
   if (!searchValue.length >= 1) {
     searchedTodos = item;
@@ -61,10 +55,14 @@ function useWish() {
     const newCategory = [...category];
     newCategory.push({
       title: categoryName,
-      count: totalItemCategory(categoryName),
+      count: 0,
       color: color
     });
     saveCategory(newCategory);
+  };
+  const totalItemCategory = (title) => {
+    const totalItem = item.filter((e) => e.category === title).length;
+    return totalItem;
   };
 
   const toggleCompletedTodos = (text) => {
@@ -88,6 +86,7 @@ function useWish() {
   }
 
   const state = {
+    item,
     loading,
     error,
     searchedTodos,
@@ -100,7 +99,7 @@ function useWish() {
     addCategory,
     newValue,
     categoryName,
-    categoryColor
+    categoryColor,
   };
   const stateUpdaters = {
     add,
@@ -113,7 +112,9 @@ function useWish() {
     setNewValue,
     deleteCategory,
     setCategoryName,
-    setCategoryColor
+    setCategoryColor,
+    categoryTotalCompleted,
+    totalItemCategory,
   };
 
   return { state, stateUpdaters };
