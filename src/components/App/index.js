@@ -23,6 +23,7 @@ import AllCategoriesButtons from "../AllCategoriesButtons";
 function App() {
   const {state, stateUpdaters} = useWish();
   const { 
+    item,
     loading,
     error,
     searchedTodos,
@@ -35,9 +36,10 @@ function App() {
     addCategory,
     newValue,
     categoryName,
-    categoryColor
+    categoryColor,
   } = state;
-  const {add,
+  const {
+    add,
     toggleCompletedTodos,
     setSearchValue,
     deleteTodo,
@@ -47,7 +49,9 @@ function App() {
     setNewValue,
     deleteCategory,
     setCategoryName,
-    setCategoryColor
+    setCategoryColor,
+    categoryTotalCompleted,
+    totalItemCategory,
   } = stateUpdaters;
 
   return (
@@ -65,11 +69,11 @@ function App() {
           <CategorieItems
             key={cat.title}
             title={cat.title}
-            count={cat.count}
+            color={cat.color}
             onDelete={() => deleteCategory(cat.title)}
-            // item={item}
-            // progress={categoriesCompleted(cat.count,item,cat.title)}
-            // progressColor={progressColor(cat.title)}
+            item={item}
+            progress={categoryTotalCompleted(totalItemCategory(cat.title),item,cat.title)}
+            totalItemCategory={totalItemCategory(cat.title)}
             />
         )}
       ></Categorie>
@@ -93,7 +97,7 @@ function App() {
             text={task.text}
             completed={task.completed}
             category={task.category}
-            categoryColor={categoryColor}
+            categoryColor={task.categoryColor}
             onComplete={() => toggleCompletedTodos(task.text)}
             onDelete={() => deleteTodo(task.text)}
           />
