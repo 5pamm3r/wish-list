@@ -3,7 +3,7 @@
   position: relative;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 150px;
+  min-width: 150px;
   height: 100px;
   background-color: #051853;
   margin: 20px 0;
@@ -30,15 +30,11 @@
 .delete__category {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 2px;
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
 }
-/* .progressBar-personal {
-  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px darkviolet,
-    0 0 10px darkviolet, 0 0 10px darkviolet, 0 0 10px darkviolet;
-  background-color: darkviolet;
-}
-.progressBar-business {
-  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px lightskyblue, 0 0 10px lightskyblue,
-    0 0 10px lightskyblue, 0 0 10px lightskyblue;
-  background-color: lightskyblue;
-} */
