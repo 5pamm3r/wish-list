@@ -130,7 +130,7 @@ function App() {
         </ItemModal>
       )}
       {openCategModal && (
-        <CategoryModal>
+        <CategoryModal setOpenCategModal={setOpenCategModal}>
           <FormCategory category={category} addCategory={addCategory} />
 
         </CategoryModal>
