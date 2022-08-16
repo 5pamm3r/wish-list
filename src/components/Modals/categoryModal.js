@@ -1,11 +1,17 @@
-import React from 'react'
+import ReactDOM from 'react-dom';
 import './CategoryModal.css'
 
-function CategoryModal({ children }) {
-  return (
-    <div className='CategoryModal__container'>
+function CategoryModal({ children, setOpenCategModal }) {
+  const onClick = (e) => {
+    if(e.target.id === 'categoryModal'){
+      setOpenCategModal(prevState => !prevState)
+    }
+  }
+  return ReactDOM.createPortal(
+    <div id='categoryModal' className='CategoryModal__container' onClick={onClick}> 
       {children}
-    </div>
+    </div>,
+    document.getElementById('categoryModal')
   )
 }
 
