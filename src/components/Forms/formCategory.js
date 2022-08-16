@@ -5,9 +5,8 @@ function FormCategory({ category, addCategory }) {
   const [value, setValue] = React.useState('')
   const [color, setColor] = useState('')
 
-//hacer que no se repita la misma categoria.
   const onSubmit = () => {
-    if(!category.includes(value)){
+    if(category.find(e=>e.title === value) === undefined) {
       addCategory(value, color)
     }
   }
@@ -21,12 +20,12 @@ function FormCategory({ category, addCategory }) {
 
   return (
     <form className='FormCategory__container' onSubmit={onSubmit}>
-      <textarea placeholder='New category name' autoFocus onChange={onChangeValue} />
-      <div className='categoryColor__container'>
-        <span>Select a color</span>
-        <input type='color' id='categoryColor' onChange={onChangeColor} />
+      <textarea className='Category__textarea' placeholder='New category name' autoFocus required onChange={onChangeValue} />
+      <div className='CategoryColor__container'>
+        <span className='Subtitle__color'>Select color</span>
+        <input className='Select__color' type='color' id='categoryColor' onChange={onChangeColor}/>
       </div>
-      <button>Ir</button>
+      <button className='CreateCategory__button'>Create</button>
     </form>
   )
 }
