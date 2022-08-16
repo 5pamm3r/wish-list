@@ -1,12 +1,17 @@
 .categorie__title {
   font-size: 1.8rem;
-  margin-left: 50px;
+  margin-left: 20px;
   color: lightgray;
 }
 .categorieItem__container {
   display: flex;
   gap: 10px;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 20px 20px;
+  overflow: scroll;
+  white-space: nowrap;
+}
+.categorieItem__container::-webkit-scrollbar {
 }
 .btn__add {
   width: 50px;
@@ -15,7 +20,21 @@
   border-radius: 100%;
   cursor: pointer;
 }
-.newCategory .item__container {
+.newCategory__container {
+  min-width: 150px;
+  height: 100px;
+  margin: 20px 0;
+}
+.newCategory__item {
   align-items: center;
   font-size: 1.5rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 150px;
+  height: 100px;
+  background-color: #051853;
+  border-radius: 10px;
+  padding: 10px;
 }
