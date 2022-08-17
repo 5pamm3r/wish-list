@@ -21,6 +21,11 @@ import FormCategory from "../Forms/formCategory";
 import AllCategoriesButtons from "../AllCategoriesButtons";
 
 function App() {
+  if(document.documentElement.scrollHeight > window.innerHeight){
+    document.getElementById('root').style.height = '100%';
+  }else {
+    document.getElementById('root').style.height = '100vh';
+  }
   const {state, stateUpdaters} = useWish();
   const { 
     item,
@@ -80,6 +85,7 @@ function App() {
 
       <List
         //primero validaciones
+        item={item}
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
@@ -107,7 +113,7 @@ function App() {
       </List>
 
       {openItemModal && (
-        <ItemModal>
+        <ItemModal setOpenItemModal={setOpenItemModal}>
           <FormItem
             category={category}
             categoryName={categoryName}
