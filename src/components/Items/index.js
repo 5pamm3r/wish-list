@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DeleteButton } from "../DeleteButton";
 import "./Items.css";
 
@@ -9,7 +9,7 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
     0 0 10px ${categoryColor}, 0 0 10px ${categoryColor}, 0 0 10px ${categoryColor}`,
     border: `1px solid ${categoryColor}`,
   }
-  
+
   return (
     <div
       className={`items__container `}
@@ -24,9 +24,8 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
           alt="check icon"
         />
       </div>
-      <p className={`item__p ${completed && "item__p-completed"}`}>
-        {text}
-      </p>
+      <textarea className={`item__textarea ${completed && "item__textarea-completed"}`} defaultValue={text}>
+      </textarea>
       <DeleteButton onDelete={onDelete} />
     </div>
   );
