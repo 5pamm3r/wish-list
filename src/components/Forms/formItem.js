@@ -17,10 +17,12 @@ function FormItem({
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
     add(newValue, categoryName, categoryColor);
     setSearchValue("");
+    setNewValue("")
     setOpenItemModal(false);
   };
   const onCancel = () => {
     setOpenItemModal(false);
+    setNewValue("")
   };
 
   const onChange = (event) => {
