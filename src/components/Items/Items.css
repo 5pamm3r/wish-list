@@ -25,9 +25,13 @@
   display: none;
 }
 
-.item__p {
+.item__textarea {
   color: white;
   font-size: 2rem;
+  border: none;
+  width: 90%;
+  resize: none;
+  background-color: transparent;
 }
 
 .item__check-completed {
@@ -38,6 +42,6 @@
   width: 100%;
 }
 
-.item__p-completed {
+.item__textarea-completed {
   text-decoration: line-through;
 }
