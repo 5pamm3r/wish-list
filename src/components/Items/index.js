@@ -24,7 +24,7 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
           alt="check icon"
         />
       </div>
-      <textarea className={`item__textarea ${completed && "item__textarea-completed"}`} defaultValue={text}>
+      <textarea className={`item__textarea ${completed && "item__textarea-completed"}`} rows='1' defaultValue={text}>
       </textarea>
       <DeleteButton onDelete={onDelete} />
     </div>
