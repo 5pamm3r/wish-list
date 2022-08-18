@@ -10,8 +10,7 @@
   margin: 0 20px 20px;
   overflow: scroll;
   white-space: nowrap;
-}
-.categorieItem__container::-webkit-scrollbar {
+  overflow-y: hidden;
 }
 .btn__add {
   width: 50px;
