@@ -1,0 +1,14 @@
+.item__container .Delete__title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.item__container .Delete__subtitle {
+  color: white;
+  text-align: center;
+}
+.item__container .DeleteCategoryButtons__container {
+  display: flex;
+  justify-content: space-between;
+}
