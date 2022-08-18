@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useCategoryLocalStorage from "./useCategoryLocalStorage";
 import { useLocalStorage } from "./useLocalStorage";
 
@@ -6,17 +6,24 @@ function useWish() {
   const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage(
     "WISHLIST_V1",
     []
-    ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
-    const { category, saveCategory, catLoading, catError, sincronizeCategory } =
+  ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+  const { category, saveCategory, catLoading, catError, sincronizeCategory } =
     useCategoryLocalStorage("WISHLIST-CAT_V1", []);
-    const [searchValue, setSearchValue] = React.useState("");
-    const [openItemModal, setOpenItemModal] = React.useState(false);
-    const [openCategModal, setOpenCategModal] = React.useState(false);
-    const [newValue, setNewValue] = React.useState("");
-    const [categoryName, setCategoryName] = useState('')
-    const [categoryColor, setCategoryColor] = useState('')
-    let searchedTodos = [];
-  
+  const [searchValue, setSearchValue] = React.useState("");
+  const [openItemModal, setOpenItemModal] = React.useState(false);
+  const [openCategModal, setOpenCategModal] = React.useState(false);
+  const [newValue, setNewValue] = React.useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [categoryColor, setCategoryColor] = useState("");
+  let searchedTodos = [];
+
+  useEffect(() => {
+    if (document.documentElement.scrollHeight > window.innerHeight) {
+      document.getElementById("root").style.height = "100%";
+    } else {
+      document.getElementById("root").style.height = "100vh";
+    }
+  }, [item]);
 
   const itemCompleted = item.filter((todo) => !!todo.completed).length;
   const itemTotal = item.length;
@@ -28,7 +35,6 @@ function useWish() {
     const progress = (cantCompleted * 100) / cantItems;
     return progress;
   };
-
 
   if (!searchValue.length >= 1) {
     searchedTodos = item;
@@ -47,7 +53,7 @@ function useWish() {
       completed: false,
       text: text,
       category: categoryName,
-      categoryColor: categoryColor
+      categoryColor: categoryColor,
     });
     saveItem(newTodos);
   };
@@ -56,7 +62,7 @@ function useWish() {
     newCategory.push({
       title: categoryName,
       count: 0,
-      color: color
+      color: color,
     });
     saveCategory(newCategory);
   };
@@ -79,10 +85,14 @@ function useWish() {
     saveItem(newTodos);
   };
   const deleteCategory = (categoryName) => {
-    const index =  category.findIndex((cat)=> cat.title === categoryName)
-    const newCategory = [...category]
-    newCategory.splice(index, 1)
-    saveCategory(newCategory)
+    const index = category.findIndex((cat) => cat.title === categoryName);
+    const newCategory = [...category];
+    newCategory.splice(index, 1);
+    saveCategory(newCategory);
+  };
+  const deleteAllItemCategory = (categoryName) => {
+    const newItems = item.filter(e=>e.category !== categoryName)
+    saveItem(newItems)
   }
 
   const state = {
@@ -115,6 +125,7 @@ function useWish() {
     setCategoryColor,
     categoryTotalCompleted,
     totalItemCategory,
+    deleteAllItemCategory,
   };
 
   return { state, stateUpdaters };

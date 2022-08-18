@@ -19,13 +19,9 @@ import { CategorieItems } from "../CategorieItems";
 import { CategoryModal } from "../Modals/categoryModal";
 import FormCategory from "../Forms/formCategory";
 import AllCategoriesButtons from "../AllCategoriesButtons";
+import DeleteCategory from "../DeleteCategory";
 
 function App() {
-  if(document.documentElement.scrollHeight > window.innerHeight){
-    document.getElementById('root').style.height = '100%';
-  }else {
-    document.getElementById('root').style.height = '100vh';
-  }
   const {state, stateUpdaters} = useWish();
   const { 
     item,
@@ -42,6 +38,7 @@ function App() {
     newValue,
     categoryName,
     categoryColor,
+    stateDeleteCategory,
   } = state;
   const {
     add,
@@ -57,6 +54,8 @@ function App() {
     setCategoryColor,
     categoryTotalCompleted,
     totalItemCategory,
+    setStateDeleteCategory,
+    deleteAllItemCategory,
   } = stateUpdaters;
 
   return (
@@ -72,13 +71,16 @@ function App() {
         setOpenCategModal={setOpenCategModal}
         render={(cat) => (
           <CategorieItems
-            key={cat.title}
-            title={cat.title}
-            color={cat.color}
-            onDelete={() => deleteCategory(cat.title)}
-            item={item}
-            progress={categoryTotalCompleted(totalItemCategory(cat.title),item,cat.title)}
-            totalItemCategory={totalItemCategory(cat.title)}
+          key={cat.title}
+          title={cat.title}
+          color={cat.color}
+          item={item}
+          stateDeleteCategory={stateDeleteCategory}
+          setStateDeleteCategory={setStateDeleteCategory}
+          progress={categoryTotalCompleted(totalItemCategory(cat.title),item,cat.title)}
+          totalItemCategory={totalItemCategory(cat.title)}
+          deleteCategory={deleteCategory}
+          deleteAllItemCategory={()=>deleteAllItemCategory(cat.title)}
             />
         )}
       ></Categorie>
