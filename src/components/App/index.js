@@ -19,7 +19,6 @@ import { CategorieItems } from "../CategorieItems";
 import { CategoryModal } from "../Modals/categoryModal";
 import FormCategory from "../Forms/formCategory";
 import AllCategoriesButtons from "../AllCategoriesButtons";
-import DeleteCategory from "../DeleteCategory";
 
 function App() {
   const {state, stateUpdaters} = useWish();
@@ -38,7 +37,6 @@ function App() {
     newValue,
     categoryName,
     categoryColor,
-    stateDeleteCategory,
   } = state;
   const {
     add,
@@ -54,7 +52,6 @@ function App() {
     setCategoryColor,
     categoryTotalCompleted,
     totalItemCategory,
-    setStateDeleteCategory,
     deleteAllItemCategory,
   } = stateUpdaters;
 
@@ -75,8 +72,6 @@ function App() {
           title={cat.title}
           color={cat.color}
           item={item}
-          stateDeleteCategory={stateDeleteCategory}
-          setStateDeleteCategory={setStateDeleteCategory}
           progress={categoryTotalCompleted(totalItemCategory(cat.title),item,cat.title)}
           totalItemCategory={totalItemCategory(cat.title)}
           deleteCategory={deleteCategory}
@@ -117,6 +112,7 @@ function App() {
       {openItemModal && (
         <ItemModal setOpenItemModal={setOpenItemModal}>
           <FormItem
+            item={item}
             category={category}
             categoryName={categoryName}
             categoryColor={categoryColor}
@@ -139,7 +135,7 @@ function App() {
       )}
       {openCategModal && (
         <CategoryModal setOpenCategModal={setOpenCategModal}>
-          <FormCategory category={category} addCategory={addCategory} />
+          <FormCategory category={category} addCategory={addCategory} setOpenCategModal={setOpenCategModal} />
 
         </CategoryModal>
       )}
