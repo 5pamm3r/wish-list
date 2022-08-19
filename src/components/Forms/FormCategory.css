@@ -33,3 +33,8 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.FormCategory__container .ErrorCategory__exists {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+}

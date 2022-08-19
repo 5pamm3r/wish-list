@@ -39,9 +39,8 @@
   border-radius: 10px;
   cursor: pointer;
   border: none;
+}.form__container .ErrorItem__exists {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-/* .personal-btn {
-  
-}
-.business-btn {
-} */

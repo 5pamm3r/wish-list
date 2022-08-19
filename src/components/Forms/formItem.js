@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FormItem.css";
 
 function FormItem({
+  item,
   add,
   setOpenItemModal,
   setSearchValue,
@@ -11,18 +12,22 @@ function FormItem({
   setNewValue,
   categoryName,
   categoryColor,
-  
 }) {
+  const [error, setError] = useState(false);
   const onSubmit = (event) => {
     event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
-    add(newValue, categoryName, categoryColor);
-    setSearchValue("");
-    setNewValue("")
-    setOpenItemModal(false);
+    if (item.find((e) => e.text === newValue) === undefined) {
+      add(newValue, categoryName, categoryColor);
+      setSearchValue("");
+      setNewValue("");
+      setOpenItemModal(false);
+    } else {
+      setError(true)
+    }
   };
   const onCancel = () => {
     setOpenItemModal(false);
-    setNewValue("")
+    setNewValue("");
   };
 
   const onChange = (event) => {
@@ -41,6 +46,7 @@ function FormItem({
         placeholder="New task.."
         required
       />
+      {!!error && <p className="ErrorItem__exists">The item already exists</p>}
       <input
         onClick={onCancel}
         type="image"
