@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { DeleteButton } from "../DeleteButton";
+import IconCheck from '../../Assets/Icons/check.png'
 import "./Items.css";
 
 function Items({text, completed, onDelete, onComplete, categoryColor}) {
@@ -20,7 +20,7 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
         style={checkStyle}
 >
         <img
-          src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/48/ffffff/external-check-user-interface-tanah-basah-detailed-outline-tanah-basah.png"
+          src={IconCheck}
           alt="check icon"
         />
       </div>
