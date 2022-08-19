@@ -49,7 +49,7 @@ function useWish() {
   //Guarda el nuevo array en localStorage y en estado global.
   const add = (text, categoryName, categoryColor) => {
     const newTodos = [...item];
-    newTodos.push({
+    newTodos.unshift({
       completed: false,
       text: text,
       category: categoryName,
