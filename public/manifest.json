@@ -1,0 +1,18 @@
+{
+  "short-name": "Wishlist",
+  "name": "Wishlist",
+  "icons": [
+    {
+      "src": "/src/Assets/Icons/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "related_applications": [],
+  "prefer-related-applications": false
+}
