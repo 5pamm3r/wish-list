@@ -1,0 +1,44 @@
+.NotFound__container {
+  position: relative;
+  align-items: center;
+  background-image: url(../../Assets/Images/background404.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 40px;
+  padding-top: 40px;
+  font-family: sans-serif;
+}
+.NotFound__container .NotFound__title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+}
+.NotFound__container .NotFound__404 {
+  color: purple;
+  font-size: 4.2rem;
+
+}
+.NotFound__container .NotFound__subtitle {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  padding: 0 20px;
+  text-align: center;
+}
+.NotFound__container .NotFound__button {
+  background-color: purple;
+  border-radius: 10px;
+  font-size: 2rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+.NotFound__container img {
+  width: 200px;
+  position: absolute;
+  bottom: 100px;
+}
