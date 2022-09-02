@@ -1,7 +1,4 @@
-.list__container {
-  position: relative;
 
-}
 .list__container ul {
   min-width: 350px;
   max-width: 500px;
