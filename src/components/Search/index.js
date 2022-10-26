@@ -2,7 +2,6 @@ import React from "react";
 import "./Search.css";
 
 function Search({ searchValue, setSearchValue, loading }) {
-  //event trae muchísimas propiedades.
   const onSearchValueChange = (event) => {
     setSearchValue(event.target.value);
   };
@@ -14,7 +13,7 @@ function Search({ searchValue, setSearchValue, loading }) {
         placeholder="Search..."
         onChange={onSearchValueChange}
         value={searchValue}
-        disabled={loading} //Se activa disabled cuando loading sea true.
+        disabled={loading} 
       />
     </div>
   );
