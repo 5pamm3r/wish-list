@@ -17,7 +17,6 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
 
   return (
     <div
-      onClick={onMoveContainer}
       className={`items__container ${!!state && 'items__container-click'}`}
     >
       <div id="checkColor"
@@ -30,9 +29,9 @@ function Items({text, completed, onDelete, onComplete, categoryColor}) {
           alt="check icon"
         />
       </div>
-      <textarea className={`item__textarea ${completed && "item__textarea-completed"}`} rows='1' defaultValue={text}>
+      <textarea className={`item__textarea ${completed && "item__textarea-completed"}`} rows='1' defaultValue={text} disabled>
       </textarea>
-      <DeleteButton onDelete={onDelete} />
+      <DeleteButton onDelete={onDelete} onMoveContainer={onMoveContainer} />
     </div>
   );
 }
