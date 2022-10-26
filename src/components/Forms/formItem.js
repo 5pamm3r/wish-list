@@ -15,7 +15,7 @@ function FormItem({
 }) {
   const [error, setError] = useState(false);
   const onSubmit = (event) => {
-    event.preventDefault(); //Ayuda a que cuando el form se envíe, no va a recargar o enviar los datos a alguna parte, lo cancela.
+    event.preventDefault();
     if (item.find((e) => e.text === newValue) === undefined) {
       add(newValue, categoryName, categoryColor);
       setSearchValue("");
@@ -32,12 +32,11 @@ function FormItem({
 
   const onChange = (event) => {
     setNewValue(event.target.value);
+    setError(false)
   };
 
   return (
-    //Los form tienen un evento onSubmit
-    <form className="form__container" onSubmit={onSubmit}>
-      {/*Un textarea a diferencia del input, permite que el texto largo se desplace hacia abajo. */}
+    <form className="form__container closed" onSubmit={onSubmit}>
       <textarea
         className="textarea"
         autoFocus
@@ -46,7 +45,7 @@ function FormItem({
         placeholder="New task.."
         required
       />
-      {!!error && <p className="ErrorItem__exists">The item already exists</p>}
+      {!!error && <p className="ErrorItem__exists">Item already exists</p>}
       <input
         onClick={onCancel}
         type="image"
