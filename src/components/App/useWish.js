@@ -6,7 +6,7 @@ function useWish() {
   const { item, saveItem, sincronizeItem, loading, error } = useLocalStorage(
     "WISHLIST_V1",
     []
-  ); //primero el elemento (item), segundo la actualización del mismo (saveItem).
+  );
   const { category, saveCategory, catLoading, catError, sincronizeCategory } =
     useCategoryLocalStorage("WISHLIST-CAT_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
@@ -45,8 +45,6 @@ function useWish() {
       return todoText.includes(searchText);
     });
   }
-
-  //Guarda el nuevo array en localStorage y en estado global.
   const add = (text, categoryName, categoryColor) => {
     const newTodos = [...item];
     newTodos.unshift({
@@ -79,10 +77,13 @@ function useWish() {
   };
 
   const deleteTodo = (text) => {
-    const todoIndex = item.findIndex((todo) => todo.text === text);
-    const newTodos = [...item];
-    newTodos.splice(todoIndex, 1);
-    saveItem(newTodos);
+    setTimeout(()=>{
+
+      const todoIndex = item.findIndex((todo) => todo.text === text);
+      const newTodos = [...item];
+      newTodos.splice(todoIndex, 1);
+      saveItem(newTodos);
+    },1000)
   };
   const deleteCategory = (categoryName) => {
     const index = category.findIndex((cat) => cat.title === categoryName);
