@@ -1,4 +1,5 @@
 import React from "react";
+import './AllCategoriesButtons.css'
 
 function AllCategoriesButtons({
   nameCategory,
@@ -13,7 +14,7 @@ function AllCategoriesButtons({
 
   return (
     <div>
-      <button onClick={onClick}>{nameCategory}</button>
+      <button className="Button__category" onClick={onClick}>{nameCategory}</button>
     </div>
   );
 }
