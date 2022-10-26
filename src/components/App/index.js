@@ -14,7 +14,7 @@ import { Loading } from "../Loading";
 import { Header } from "../Header";
 import { EmptySearchResults } from "../EmptySearchResults";
 import { ChangeAlert } from "../StorageChangeAlert";
-import { Categorie } from "../Categorie";
+import { Categories } from "../Categories";
 import { CategorieItems } from "../CategorieItems";
 import { CategoryModal } from "../Modals/categoryModal";
 import FormCategory from "../Forms/formCategory";
@@ -63,7 +63,7 @@ function App() {
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       </Header>
 
-      <Categorie
+      <Categories
         category={category}
         setOpenCategModal={setOpenCategModal}
         render={(cat) => (
@@ -78,13 +78,14 @@ function App() {
           deleteAllItemCategory={()=>deleteAllItemCategory(cat.title)}
             />
         )}
-      ></Categorie>
+      ></Categories>
 
       <List
         //primero validaciones
         item={item}
         error={error}
         loading={loading}
+        searchValue={searchValue}
         searchedTodos={searchedTodos}
         itemTotal={itemTotal}
         //luego renderiza
