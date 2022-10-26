@@ -10,7 +10,22 @@
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0px 0px 4px 0px rgba(143, 143, 143, 0.56);
-
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.item__container.active {
+  transform: rotateY(180deg);
+}
+.item__container .face {
+  backface-visibility: hidden;
+}
+.item__container .face.front {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item__container .face.back {
+  transform: rotateY(180deg);
 }
 .item__title {
   color: white;
@@ -28,15 +43,5 @@
 }
 .progress__bar {
   height: 100%;
-}
-.delete__category {
-  position: absolute;
-  top: 0;
-  right: 3px;
-  background-color: transparent;
-  border: none;
-  color: crimson;
-  font-weight: bold;
-  font-size: 1.5rem;
-  cursor: pointer;
+  transition: width 500ms;
 }

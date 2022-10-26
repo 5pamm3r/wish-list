@@ -2,6 +2,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  scale: 2;
+}
+.form__container.closed {
+  transition: scale 1000ms;
+  scale: 1;
 }
 .textarea {
   width: 250px;
@@ -13,20 +18,9 @@
 
 .input-cancel {
   position: absolute;
-  top: -20px;
-  right: -20px;
-}
-.btn-add {
-  font-size: 2rem;
-  padding: 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100px;
-  background-color: #324E9B;
-  border: none;
-  color: white;
-  display: block;
-  margin: 20px auto;
+  top: -10px;
+  right: -10px;
+  width: 30px;
 }
 .categorieButton__container {
   display: flex;
@@ -34,12 +28,7 @@
   justify-content: space-around;
   margin: 10px;
 }
-.button-categorie {
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-}.form__container .ErrorItem__exists {
+.form__container .ErrorItem__exists {
   color: red;
   font-size: 1.5rem;
   font-weight: bold;

@@ -1,9 +1,9 @@
-.categorie__title {
+.categories__title {
   font-size: 1.8rem;
   margin-left: 20px;
   color: lightgray;
 }
-.categorieItem__container {
+.categoriesItem__container {
   display: flex;
   gap: 10px;
   justify-content: space-between;
