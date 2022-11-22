@@ -1,6 +1,6 @@
 .first-task{
   margin-bottom: 25px;
-  color: lightgray;
+  color: var(--text-color);
   font-weight: bold;
   font-size: 2rem;
 }

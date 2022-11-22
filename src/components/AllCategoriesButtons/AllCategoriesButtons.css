@@ -3,11 +3,11 @@
   cursor: pointer;
   font-weight: bold;
   background: transparent;
-  color: white;
-  border: 1px solid white;
+  color: var(--text-color);
+  border: 1px solid black;
   border-radius: 10px;
 }
 .Button__category:hover {
-  background: white;
-  color: black;
+  color: white;
+  background-color: black;
 }

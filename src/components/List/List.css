@@ -1,8 +1,10 @@
-
+.list__container {
+  height: 45%;
+}
 .list__container ul {
   min-width: 350px;
   max-width: 500px;
-  min-height: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -10,9 +12,10 @@
   align-items: center;
   margin: 20px auto;
   padding-bottom: 20px;
+  overflow: scroll;
 }
 .list__title {
-  color: lightgray;
+  color: var(--text-color);
   margin-left: 20px;
   font-size: 1.8rem;
 }

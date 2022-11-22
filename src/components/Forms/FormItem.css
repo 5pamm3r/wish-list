@@ -1,26 +1,48 @@
-.form__container {
+.formItem__container {
   position: relative;
+  border-radius: 10px;
+  background-color: var(--second-color);
+}
+.formSubtitle__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: var(--main-color);
+}
+.formSubtitle__container span {
+  font-size: 2rem;
+}
+.form__container {
   display: flex;
   flex-direction: column;
+  padding: 20px;
   scale: 2;
 }
-.form__container.closed {
-  transition: scale 1000ms;
+.form__container.active {
+  transition: scale 1s linear 1s;
   scale: 1;
 }
-.textarea {
-  width: 250px;
-  height: 60px;
-  text-align: center;
-  padding-top: 20px;
-  border-radius: 10px;
+.form__container .form-name__container span  {
+  font-size: 1.5rem;
 }
-
+.textarea {
+  display: block;
+  width: 250px;
+  height: 30px;
+  padding-left: 4px;
+  margin: 10px 0 10px 4px;
+}
+.form__container .form-category__container span {
+  font-size: 1.5rem;
+}
 .input-cancel {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 30px;
+  width: 20px;
+  right: 0;
+  top: 0;
 }
 .categorieButton__container {
   display: flex;

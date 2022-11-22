@@ -4,13 +4,13 @@
   gap: 10px;
 }
 .Delete__container .Delete__title {
-  color: white;
+  color: var(--text-color);
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
 }
 .Delete__container .Delete__subtitle {
-  color: white;
+  color: var(--text-color);
   text-align: center;
 }
 .Delete__container .DeleteCategoryButton__container {

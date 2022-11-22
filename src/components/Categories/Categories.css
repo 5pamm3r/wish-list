@@ -1,18 +1,16 @@
 .categories__title {
   font-size: 1.8rem;
   margin-left: 20px;
-  color: lightgray;
+  color: var(--text-color);
 }
 .categoriesItem__container {
   display: flex;
   gap: 10px;
   justify-content: space-between;
   margin: 0 20px 20px;
-  overflow: scroll;
+  overflow-x: scroll;
   white-space: nowrap;
-  /* overflow-y: hidden; */
   padding: 0 6px;
-  scrollbar-color: black;
 }
 .btn__add {
   width: 50px;
@@ -35,7 +33,14 @@
   justify-content: space-evenly;
   min-width: 150px;
   height: 100px;
-  background-color: #303234;
+  background-color: var(--second-color);
+  box-shadow: var(--box-shadow);
   border-radius: 10px;
   padding: 10px;
+}
+
+@media (min-width: 900px) {
+  .categoriesItem__container {
+    /* display: none; */
+  }
 }
