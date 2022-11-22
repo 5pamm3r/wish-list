@@ -17,13 +17,13 @@ function useWish() {
   const [categoryColor, setCategoryColor] = useState("");
   let searchedTodos = [];
 
-  useEffect(() => {
-    if (document.documentElement.scrollHeight > window.innerHeight) {
-      document.getElementById("root").style.height = "100%";
-    } else {
-      document.getElementById("root").style.height = "100vh";
-    }
-  }, [item]);
+  // useEffect(() => {
+  //   if (document.documentElement.scrollHeight > window.innerHeight) {
+  //     document.getElementById("root").style.height = "100%";
+  //   } else {
+  //     document.getElementById("root").style.height = "100vh";
+  //   }
+  // }, [item]);
 
   const itemCompleted = item.filter((todo) => !!todo.completed).length;
   const itemTotal = item.length;
