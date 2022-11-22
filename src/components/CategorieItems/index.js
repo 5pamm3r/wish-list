@@ -7,8 +7,8 @@ function CategorieItems(props) {
   const barStyle = {
     width: `${props.progress | 0}%`,
     backgroundColor: `${props.color}`,
-    boxShadow: `0 0 2px #fff, 0 0 5px #fff, 0 0 10px ${props.color},
-    0 0 10px ${props.color}, 0 0 10px ${props.color}, 0 0 10px ${props.color}`,
+    boxShadow: `0 0 1px #fff, 0 0 3px #fff, 0 0 5px ${props.color},
+    0 0 5px ${props.color}, 0 0 5px ${props.color}, 0 0 5px ${props.color}`,
   };
   const onClick = () => {
     setStateDelete((prevState) => !prevState);
