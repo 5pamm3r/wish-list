@@ -15,7 +15,7 @@ function List(props) {
   return (
     <section className="list__container">
       <h2 className="list__title">TODAY'S TASKS</h2>
-      <ul>
+      <ul className={!props.itemTotal?'empty':''}>
         {props.error && props.onError()}
         {props.loading && props.onLoading()}
         {!props.loading && !props.itemTotal && props.onEmpty()}
