@@ -1,7 +1,7 @@
 .formItem__container {
   position: relative;
   border-radius: 10px;
-  background-color: var(--second-color);
+  background-color: var(--main-color);
 }
 .formSubtitle__container {
   display: flex;
@@ -10,7 +10,7 @@
   padding: 20px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: var(--main-color);
+  background-color: var(--second-color);
 }
 .formSubtitle__container span {
   font-size: 2rem;
@@ -45,10 +45,18 @@
   top: 0;
 }
 .categorieButton__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 85px);
+  justify-items: center;
+  justify-content: space-between;
   gap: 10px;
-  justify-content: space-around;
   margin: 10px;
+}
+.categorieButton__container div, .categorieButton__container div button {
+  width: 100%;
+}
+.categorieButton__container div button {
+  overflow: hidden;
 }
 .form__container .ErrorItem__exists {
   color: red;

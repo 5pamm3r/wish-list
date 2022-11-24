@@ -1,40 +1,99 @@
-.FormCategory__container {
+.FormCategory__container .FormCategory-title__container {
+  background-color: var(--main-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 20px;
+  background-color: var(--second-color);
+  text-align: center;
+  font-size: 2rem;
+}
+.Form__container {
   display: flex;
   flex-direction: column;
+  background-color: var(--main-color);
+  padding: 0 40px 40px 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   gap: 10px;
 }
-.FormCategory__container .Category__textarea{
-  width: 200px;
-  height: 50px;
-  text-align: center;
-  padding-top: 15px;
+.Form__container .Form-name__container {
+  display: flex;
+  flex-direction: column;
+}
+.Form__container .Form-name__container span {
   font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 10px;
+  margin-top: 10px;
+}
+input[type=checkbox] + i {
+  border-radius: 50%;
+  background-color: red;
+}
+.Form__container .Category__textarea{
+  width: 150px;
+  height: 30px;
+  padding-left: 4px;
+  /* margin-left: 10px; */
+  margin-top: 10px;
   cursor: text;
 }
-.FormCategory__container .CategoryColor__container{
+.Form__container .CategoryColor__container{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 .CategoryColor__container .Subtitle__color {
   font-size: 1.5rem;
 }
 .CategoryColor__container .Select__color {
-  width: 80px;
+  width: 60px;
   height: 30px;
   cursor: pointer;
 }
-.FormCategory__container .CreateCategory__button {
+.CategoryColor__container span {
+  font-size: 1.5rem;
+}
+.CategoryColor__container .Colors__container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.CategoryColor__container .check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.CategoryColor__container .check.active {
+  transform: scale(1.1);
+}
+.CategoryColor__container .first-color {
+  background-color: red;
+}
+.CategoryColor__container .second-color {
+  background-color: blue;
+}
+.CategoryColor__container .third-color {
+  background-color: green;
+}
+.CategoryColor__container .fourth-color {
+  background-color: orange;
+}
+.CategoryColor__container .fifth-color {
+  background-color: violet;
+}
+.Form__container .CreateCategory__button {
   font-size: 1.8rem;
   font-weight: bold;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
-.FormCategory__container .ErrorCategory__exists {
+.Form__container .CreateCategory__button:hover {
+  background-color: black;
+  color: white;
+}
+.Form__container .ErrorCategory__exists {
   color: red;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }

@@ -28,10 +28,10 @@
   transform: rotateY(180deg);
 }
 .item__title {
-  color: var(--text-color);
+  color: var(--secondText-color);
 }
 .item__count {
-  color: var(--text-color);
+  color: var(--secondText-color);
 }
 .progress__container {
   display: flex;

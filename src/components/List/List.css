@@ -1,5 +1,9 @@
 .list__container {
-  height: 45%;
+  height: 100%;
+  color: var(--secondText-color);
+  background-color: var(--second-color);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .list__container ul {
   min-width: 350px;
@@ -14,8 +18,11 @@
   padding-bottom: 20px;
   overflow: scroll;
 }
+.list__container ul.empty {
+  overflow: auto;
+}
 .list__title {
-  color: var(--text-color);
   margin-left: 20px;
+  margin-top: 20px;
   font-size: 1.8rem;
 }

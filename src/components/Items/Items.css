@@ -17,7 +17,7 @@
   animation-duration: 1.1s;
   animation-timing-function: ease;
 }
-@keyframes delete {
+@keyframes delete { 
   0% {
     transform: translateX(0);
   }
@@ -46,7 +46,6 @@
 }
 
 .item__textarea {
-  color: var(--text-color);
   font-size: 2rem;
   border: none;
   width: 90%;
