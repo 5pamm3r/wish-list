@@ -13,7 +13,7 @@ function Categories(props) {
         <div className="newCategory__container">
           <div className="newCategory__item">
             <button className="btn__add" onClick={onClick}>+</button>
-            <span className="item__title">New Category</span>
+            {/* <span className="item__title">New Category</span> */}
           </div>
         </div>
       </ul>
