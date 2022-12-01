@@ -6,7 +6,7 @@
   margin: 0 auto;
   width: 40px;
   font-size: 3rem;
-  background-color: cadetblue;
+  background-color: var(--main-color);
   border-radius: 50%;
   cursor: pointer;
   height: 40px;
@@ -18,5 +18,11 @@
 
 .create__button:hover {
   transform: scale(1.2);
-  box-shadow: 0px 0px 28px -5px rgba(83, 190, 212, 0.75);
+  box-shadow: 0px 0px 28px -5px var(--main-color);
+}
+
+@media (min-width: 900px) {
+  .create__button {
+    bottom: 10px;
+  }
 }

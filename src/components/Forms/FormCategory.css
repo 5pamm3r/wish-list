@@ -1,11 +1,11 @@
 .FormCategory__container .FormCategory-title__container {
-  background-color: var(--main-color);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 20px;
   background-color: var(--second-color);
   text-align: center;
   font-size: 2rem;
+  color: var(--text-second-color);
 }
 .Form__container {
   display: flex;
@@ -24,10 +24,7 @@
   font-size: 1.5rem;
   margin-top: 10px;
 }
-input[type=checkbox] + i {
-  border-radius: 50%;
-  background-color: red;
-}
+
 .Form__container .Category__textarea{
   width: 150px;
   height: 30px;

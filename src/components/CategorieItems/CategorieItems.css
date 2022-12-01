@@ -26,16 +26,17 @@
 }
 .item__container .face.back {
   transform: rotateY(180deg);
+  color: var(--text-second-color);
 }
 .item__title {
   color: var(--secondText-color);
 }
 .item__count {
-  color: var(--secondText-color);
+  color: gray;
 }
 .progress__container {
   display: flex;
-  background-color: var(--main-color);
+  background-color: lightgray;
   width: 100%;
   height: 6px;
   text-align: center;

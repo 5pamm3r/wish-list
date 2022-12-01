@@ -1,4 +1,5 @@
 .list__container {
+  position: relative;
   height: 100%;
   color: var(--secondText-color);
   background-color: var(--second-color);
@@ -25,4 +26,13 @@
   margin-left: 20px;
   margin-top: 20px;
   font-size: 1.8rem;
+}
+
+@media (min-width: 900px) {
+  .list__container ul {
+    height: 500px;
+  }
+  .list__container ul::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+  }
 }
