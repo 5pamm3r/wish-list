@@ -10,3 +10,8 @@
   align-items: center;
   color: var(--text-color);
 }
+@media (max-width: 600px) {
+  .CategoryModal__container {
+    top: -200px;
+  }
+}
