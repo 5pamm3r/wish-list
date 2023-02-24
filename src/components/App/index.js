@@ -21,8 +21,8 @@ import FormCategory from "../Forms/formCategory";
 import AllCategoriesButtons from "../AllCategoriesButtons";
 
 function App() {
-  const {state, stateUpdaters} = useWish();
-  const { 
+  const { state, stateUpdaters } = useWish();
+  const {
     item,
     loading,
     error,
@@ -68,15 +68,19 @@ function App() {
         setOpenCategModal={setOpenCategModal}
         render={(cat) => (
           <CategorieItems
-          key={cat.title}
-          title={cat.title}
-          color={cat.color}
-          item={item}
-          progress={categoryTotalCompleted(totalItemCategory(cat.title),item,cat.title)}
-          totalItemCategory={totalItemCategory(cat.title)}
-          deleteCategory={deleteCategory}
-          deleteAllItemCategory={()=>deleteAllItemCategory(cat.title)}
-            />
+            key={cat.title}
+            title={cat.title}
+            color={cat.color}
+            item={item}
+            progress={categoryTotalCompleted(
+              totalItemCategory(cat.title),
+              item,
+              cat.title
+            )}
+            totalItemCategory={totalItemCategory(cat.title)}
+            deleteCategory={deleteCategory}
+            deleteAllItemCategory={() => deleteAllItemCategory(cat.title)}
+          />
         )}
       ></Categories>
 
@@ -122,8 +126,8 @@ function App() {
             setOpenItemModal={setOpenItemModal}
             setSearchValue={setSearchValue}
             setNewValue={setNewValue}
-            render={(cat)=>(
-              <AllCategoriesButtons 
+            render={(cat) => (
+              <AllCategoriesButtons
                 key={cat.title}
                 nameCategory={cat.title}
                 color={cat.color}
@@ -136,8 +140,11 @@ function App() {
       )}
       {openCategModal && (
         <CategoryModal setOpenCategModal={setOpenCategModal}>
-          <FormCategory category={category} addCategory={addCategory} setOpenCategModal={setOpenCategModal} />
-
+          <FormCategory
+            category={category}
+            addCategory={addCategory}
+            setOpenCategModal={setOpenCategModal}
+          />
         </CategoryModal>
       )}
       <ChangeAlert sincronize={sincronizeItem} />
