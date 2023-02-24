@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 .CategoryColor__container .check.active {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 .CategoryColor__container .first-color {
   background-color: red;
