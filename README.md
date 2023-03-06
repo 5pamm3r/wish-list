@@ -18,6 +18,6 @@ Get organized efficiently and say goodbye to stress. Plan, manage and control al
 - Easy site customization
 
 ## How to use
-Clone this repo
-Run `npm i`
-Run `npm start`
+- Clone this repo
+- Run `npm i`
+- Run `npm start`
